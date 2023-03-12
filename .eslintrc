@@ -1,0 +1,6 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "eol-last": 0
+  }
+}
