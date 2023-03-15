@@ -1,4 +1,8 @@
-const Content = () => {
-  return <main>Content</main>
+import { Content } from 'antd/es/layout/layout'
+
+const Main = () => {
+  return (
+    <Content>Content</Content>
+  )
 }
-export default Content
+export default Main

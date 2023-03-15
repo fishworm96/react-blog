@@ -1,4 +1,9 @@
-const Header = () => {
-  return <header>Header</header>
+import { Header } from 'antd/es/layout/layout'
+
+const BaseHeader = () => {
+  return (
+    <Header>
+    </Header>
+  )
 }
-export default Header
+export default BaseHeader

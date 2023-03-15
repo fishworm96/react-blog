@@ -1,4 +1,8 @@
-const Footer = () => {
-  return <footer>Footer</footer>
+import { Footer } from 'antd/es/layout/layout'
+
+const BaseFooter = () => {
+  return (
+    <Footer>Footer</Footer>
+  )
 }
-export default Footer
+export default BaseFooter
