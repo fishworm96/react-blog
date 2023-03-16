@@ -1,4 +1,4 @@
-html,body,#root{height:100%}
+html,body,#root{height:100%; overflow-x: hidden;}
 @import-normalize;
 @tailwind base;
 @tailwind components;
