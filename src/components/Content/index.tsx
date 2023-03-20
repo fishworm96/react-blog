@@ -1,14 +1,13 @@
-import { Content } from 'antd/es/layout/layout'
+// import { Content } from 'antd/es/layout/layout'
 import Card from '../Card'
 
 const Main = () => {
   return (
-    <Content className='flex-col justify-center min-h-3/4'>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </Content>
+    <div className='flex flex-col flex-1'>
+      <main className='flex flex-col items-center'>
+        <Card />
+      </main>
+    </div>
   )
 }
 export default Main
