@@ -16,9 +16,6 @@ const Tag = () => {
         123
       </Button>
     </>
-    // <div className="bg-indigo-600 px-1 w-10 h-full">
-    //   {children}
-    // </div>
   )
 }
 export default Tag
