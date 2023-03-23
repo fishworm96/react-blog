@@ -6,16 +6,20 @@ import { useEffect, useState } from 'react'
 // }
 
 const Tag = ({ tag }: { tag: string }) => {
-  const [fontColor, setFontColor] = useState<string>('bg-yellow-300')
+  const [fontColor, setFontColor] = useState<string>('bg-yellow-500')
+  const fontDefault = 'hover:bg-red-600 mx-2 border-none'
 
   const changeFontColor = (text: string) => {
     const len = text.length
-    if (len < 4)
-      setFontColor('bg-yellow-400')
-    else if (len < 5)
+    if (len <= 3) {
       setFontColor('bg-green-300')
-    else if (len < 6)
-      setFontColor('bg-blue-300')
+    } else if (len <= 4) {
+      setFontColor('bg-yellow-400')
+    } else if (len <= 5) {
+      setFontColor('bg-green-500')
+    } else if (len <= 6) {
+      setFontColor('bg-blue-500')
+    }
   }
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const Tag = ({ tag }: { tag: string }) => {
 
   return (
     <>
-      <Button className={`${fontColor} 'hover:bg-red-600 mx-2 border-none'`}
+      <Button className={`${fontColor} ${fontDefault}`}
       >
         {tag}
       </Button>

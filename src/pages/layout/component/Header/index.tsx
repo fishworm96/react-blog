@@ -1,9 +1,9 @@
 import { Header } from 'antd/es/layout/layout'
 
 const BaseHeader = () => {
-  document.addEventListener('keydown', (e) => {
-    console.log(e)
-  })
+  // document.addEventListener('keydown', (e) => {
+  //   console.log(e)
+  // })
 
   return (
     <Header className="flex justify-around items-center border-b-2 shadow-md bg-gradient-to-r font-middle from-green-400 via-blue-300 to-blue-500">

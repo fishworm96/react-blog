@@ -1,7 +1,7 @@
-import ArticleTime from '../ArticleTime'
-import Description from '../Description'
 import Tag from '../Tag'
-import Title from '../Title'
+import ArticleTime from './ArticleTime'
+import Description from './Description'
+import Title from './Title'
 
 const Card = ({ tag }: { tag: string[] }) => {
   return (

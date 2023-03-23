@@ -3,7 +3,7 @@ import Card from '../Card'
 import Side from '../Side'
 
 const Main = () => {
-  const a = ['1234', '122456', '3123123']
+  const a = ['1', '1234', '12345', '122456', '3123123']
 
   const changePage = (pageNumber: number) => {
     console.log(pageNumber)
