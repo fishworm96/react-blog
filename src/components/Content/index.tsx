@@ -1,23 +1,27 @@
 import { Pagination } from 'antd'
 import Card from '../Card'
-// import Side from '../Side'
+import Side from '../Side'
 
 const Main = () => {
-  const a = [1, 2, 3]
+  const a = ['1234', '122456', '3123123']
+
+  const changePage = (pageNumber: number) => {
+    console.log(pageNumber)
+  }
 
   return (
     <main className='flex flex-col flex-1 bg-gray-50'>
       <div className='flex mx-auto'>
-        {/* <Side /> */}
+        <Side />
         <div className='flex flex-col items-center -mx-80'>
           {
             a.map(item => (
-              <Card key={item} />
+              <Card key={item} tag={a} />
             ))
           }
         </div>
       </div>
-      <Pagination className='mx-auto my-4' defaultCurrent={1} total={60} />
+      <Pagination className='mx-auto my-4' defaultCurrent={1} total={60} onChange={changePage} />
     </main>
   )
 }

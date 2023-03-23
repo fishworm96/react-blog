@@ -1,6 +1,7 @@
 {
   "extends": "@antfu",
   "rules": {
-    "eol-last": 0
+    "eol-last": 0,
+    "no-console": "off",
   }
 }
