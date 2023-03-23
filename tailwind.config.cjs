@@ -13,7 +13,9 @@ module.exports = {
     minHeight: {
       '3/4': '75vh',
     },
-
+    fontSize: {
+      '2xl': '1.5rem',
+    },
   },
   plugins: [],
 }
