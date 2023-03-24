@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 const Tag = ({ tag }: { tag: string }) => {
   const [fontColor, setFontColor] = useState<string>('bg-yellow-500')
-  const fontDefault = 'hover:bg-red-600 mx-2 border-none'
+  const fontDefault = 'hover:bg-red-600 m-1 border-none'
 
   const changeFontColor = (text: string) => {
     const len = text.length

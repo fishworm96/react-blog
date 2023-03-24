@@ -4,6 +4,7 @@
     "eol-last": 0,
     "no-console": "off",
     "curly": "off",
-    "@typescript-eslint/brace-style": "off"
+    "@typescript-eslint/brace-style": "off",
+    "indent": ["error", 2]
   }
 }

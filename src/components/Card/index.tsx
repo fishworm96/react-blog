@@ -5,7 +5,7 @@ import Title from './Title'
 
 const Card = ({ tag }: { tag: string[] }) => {
   return (
-    <div className='flex-col bg-indigo-50 p-5 w-6/12 border-solid rounded-t-2xl rounded-b-2xl m-10 shadow-xl'>
+    <div className='flex-col bg-indigo-50 p-5 lg:w-full h-full border-solid rounded-t-2xl rounded-b-2xl m-10 shadow-xl'>
       <div className='my-0'>
         <Title />
         {
