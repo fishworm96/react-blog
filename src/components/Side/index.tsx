@@ -35,25 +35,25 @@ const Side = () => {
       <div className="stats stats-vertical lg:stats-horizontal shadow m-1">
 
         <div className="stat">
-          <div className="stat-title">标签</div>
+          <div className="stat-title text-center">标签</div>
           <div className="stat-value">31</div>
           {/* <div className="stat-desc">Jan</div> */}
         </div>
 
         <div className="stat">
-          <div className="stat-title">文章</div>
+          <div className="stat-title text-center">文章</div>
           <div className="stat-value">42</div>
           {/* <div className="stat-desc">400</div> */}
         </div>
 
         <div className="stat">
-          <div className="stat-title">数量</div>
+          <div className="stat-title text-center">分类</div>
           <div className="stat-value">12</div>
           {/* <div className="stat-desc">90</div> */}
         </div>
 
       </div>
-      <div className='mt-4 border-2 rounded-xl'>
+      <div className='mt-4 border-2 rounded-xl p-3'>
         {
           tag.map(item => <Tag tag={item} />)
         }
