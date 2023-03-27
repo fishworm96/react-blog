@@ -20,8 +20,8 @@ const HeaderDrawer = ({ menu }: { menu: { tag: string; path: string }[] }) => {
       <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
         {
           menu.map(item => (
-            <div className='flex flex-col'>
-              <Button className='mb-2 w-1/2'>{item.tag}</Button>
+            <div className='flex flex-col' key={item.path}>
+              <Button className='mb-2 w-1/2' key={item.path}>{item.tag}</Button>
             </div>
           ))
         }

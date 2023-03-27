@@ -55,7 +55,7 @@ const Side = () => {
       </div>
       <div className='mt-4 border-2 rounded-xl p-3'>
         {
-          tag.map(item => <Tag tag={item} />)
+          tag.map(item => <Tag key={item} tag={item} />)
         }
       </div>
     </div>

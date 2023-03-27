@@ -21,7 +21,7 @@ const Main = () => {
         </div>
         <Side />
       </div>
-      <Pagination className='mx-auto my-4' defaultCurrent={1} total={60} onChange={changePage} />
+      <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={60} onChange={changePage} />
     </>
   )
 }
