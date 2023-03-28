@@ -1,9 +1,20 @@
 import { Button } from 'antd'
+import { useNavigate } from 'react-router'
 
-const Title = () => {
+interface Props {
+  id: string
+}
+
+const Title = ({ id }: Props) => {
+  const navigate = useNavigate()
+
+  const onClick = () => {
+    navigate(`/article/${id}`)
+  }
+
   return (
     <div className='flex justify-between'>
-      <Button className="border-none shadow-none border-transparent text-2xl font-semibold text-gray-600 pb-12">
+      <Button onClick={onClick} className="border-none shadow-none border-transparent text-2xl font-semibold text-gray-600 pb-12">
         数据结构
       </Button>
     </div>

@@ -1,6 +1,10 @@
 import Tag from 'components/Tag'
+import { useParams } from 'react-router'
 
 const Article = () => {
+  const params = useParams()
+  console.log(params)
+
   return (
     <div className='flex flex-col items-center h-full'>
       <div className="h-40 w-2/3 rounded-2xl drop-shadow-xl mt-8 p-7 bg-purple-50">
