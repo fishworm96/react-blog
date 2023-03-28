@@ -1,11 +1,13 @@
 import { Button } from 'antd'
+import type { SizeType } from 'antd/es/config-provider/SizeContext'
 import { useEffect, useState } from 'react'
 
-// interface Props {
-//   children: string
-// }
+interface Props {
+  tag: string
+  size?: SizeType
+}
 
-const Tag = ({ tag }: { tag: string }) => {
+const Tag = ({ tag, size = 'middle' }: Props) => {
   const [fontColor, setFontColor] = useState<string>('bg-yellow-500')
   const fontDefault = 'hover:bg-red-600 m-1 border-none'
 
@@ -28,7 +30,7 @@ const Tag = ({ tag }: { tag: string }) => {
 
   return (
     <>
-      <Button className={`${fontColor} ${fontDefault}`}
+      <Button size={size} className={`${fontColor} ${fontDefault}`}
       >
         {tag}
       </Button>
