@@ -17,14 +17,16 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
       <Button type="primary" onClick={showDrawer}>
         三
       </Button>
-      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
-        {
-          menu.map(item => (
-            <div className='flex flex-col' key={item.path}>
-              <Button className='mb-2 w-1/2' key={item.path}>{item.name}</Button>
-            </div>
-          ))
-        }
+      <Drawer style={{ backgroundColor: 'rgb(248 250 252)' }} className='bg-black' width='150' placement="right" closable={false} onClose={onClose} open={open}>
+        <div>
+          {
+            menu.map(item => (
+              <div className='flex flex-col' key={item.path}>
+                <Button className='mb-2 bg-white' key={item.path}>{item.name}</Button>
+              </div>
+            ))
+          }
+        </div>
       </Drawer>
     </div>
   )

@@ -10,12 +10,14 @@ const BaseHeader = () => {
   return (
     <Header className="flex justify-around items-center border-b-2 shadow-md bg-gradient-to-r font-middle from-green-400 via-blue-300 to-blue-500">
       <div>
-        <img className='w-10' src='https://avatars.githubusercontent.com/u/71592066?v=4' />
+        <Link to='/'>
+          <div className='font-title text-primary inline-flex text-lg transition-all duration-200 sm:text-3xl'>
+            <span className="uppercase text-base-content">c</span>
+            <span className="lowercase text-primary">ode</span>
+          </div>
+        </Link>
       </div>
       <div className='hidden lg:block'>
-        {/* {
-          title.map(item => (<span className="m-2 text-2xl h-20">{item}</span>))
-        } */}
         {
           NavLinkList.map(item => (
             <Link className='mx-1' to={item.path} key={item.path}>
