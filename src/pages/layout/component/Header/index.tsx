@@ -18,8 +18,8 @@ const BaseHeader = () => {
         } */}
         {
           NavLinkList.map(item => (
-            <Link to={item.path} key={item.path}>
-              <Button className='text-2xl h-10 border-none' key={item.path}>{item.tag}</Button>
+            <Link className='mx-1' to={item.path} key={item.path}>
+              <Button className='text-2xl h-10 border-none' key={item.path}>{item.name}</Button>
             </Link>
           ))
         }
