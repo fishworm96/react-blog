@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
+import Loading from 'components/Loading'
+import MySkeleton from 'components/MySkeleton'
 import Layout from '@/pages/layout'
 import Main from '@/pages/layout/component/Content/Main'
 
@@ -22,7 +24,7 @@ export const router = [
           {
             path: ':id',
             element: (
-              <Suspense fallback={<div>...loading</div>}>
+              <Suspense fallback={<Loading />}>
                 <Article />
               </Suspense>
             ),
@@ -32,7 +34,7 @@ export const router = [
       {
         path: 'category',
         element: (
-          <Suspense fallback={<div>...loading</div>}>
+          <Suspense fallback={<MySkeleton />}>
             <Category />
           </Suspense>
         ),
@@ -40,7 +42,7 @@ export const router = [
       {
         path: 'tag',
         element: (
-          <Suspense fallback={<div>...loading</div>}>
+          <Suspense fallback={<MySkeleton />}>
             <ArticleTag />
           </Suspense>
         ),
