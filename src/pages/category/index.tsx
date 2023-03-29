@@ -11,11 +11,11 @@ const Category = () => {
         <div className='text-5xl'>分类</div>
       </CardTitle>
       <CardContent>
-        <div className='flex flex-wrap justify-center gap-8'>
+        <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3'>
           {
             count.map((_, index) => (
               <Link to='/' key={index}>
-                <div className='card w-72 h-40 bg-base-100 shadow-xl image-full'>
+                <div className='card w-72 h-40 my-3 bg-base-100 shadow-xl image-full'>
                   <figure>
                     <img src="https://api.lorem.space/image/movie?w=400&h=225" />
                   </figure>

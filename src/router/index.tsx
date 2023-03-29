@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loading from 'components/Loading'
 import MySkeleton from 'components/MySkeleton'
+import Error404 from 'components/404'
 import Layout from '@/pages/layout'
 import Main from '@/pages/layout/component/Content/Main'
 
@@ -13,23 +14,19 @@ export const router = [
   {
     path: '/',
     element: <Layout />,
+    errorElement: <Error404 />,
     children: [
       {
         path: '',
         element: <Main />,
       },
       {
-        path: 'article',
-        children: [
-          {
-            path: ':id',
-            element: (
-              <Suspense fallback={<Loading />}>
-                <Article />
-              </Suspense>
-            ),
-          },
-        ],
+        path: 'article/:id',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Article />
+          </Suspense>
+        ),
       },
       {
         path: 'category',
