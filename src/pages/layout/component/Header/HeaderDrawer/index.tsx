@@ -1,8 +1,14 @@
 import { Button, Drawer } from 'antd'
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
+
+  const onClick = (path: string) => {
+    navigate(path)
+  }
 
   const showDrawer = () => {
     setOpen(true)
@@ -22,7 +28,7 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
           {
             menu.map(item => (
               <div className='flex flex-col' key={item.path}>
-                <Button className='mb-2 bg-white' key={item.path}>{item.name}</Button>
+                <Button onClick={() => onClick(item.path)} className='mb-2 bg-white' key={item.path}>{item.name}</Button>
               </div>
             ))
           }
