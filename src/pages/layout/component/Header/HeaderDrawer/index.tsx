@@ -23,7 +23,7 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
       <Button type="primary" onClick={showDrawer}>
         三
       </Button>
-      <Drawer style={{ backgroundColor: 'rgb(248 250 252)' }} className='bg-black' width='150' placement="right" closable={false} onClose={onClose} open={open}>
+      <Drawer style={{ backgroundColor: 'rgb(248 250 252)' }} className='bg-black' width={150} placement="right" closable={false} onClose={onClose} open={open}>
         <div>
           {
             menu.map(item => (
