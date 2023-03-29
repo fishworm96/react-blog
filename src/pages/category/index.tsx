@@ -13,8 +13,8 @@ const Category = () => {
       <CardContent>
         <div className='flex flex-wrap justify-center gap-8'>
           {
-            count.map(() => (
-              <Link to='/'>
+            count.map((_, index) => (
+              <Link to='/' key={index}>
                 <div className='card w-72 h-40 bg-base-100 shadow-xl image-full'>
                   <figure>
                     <img src="https://api.lorem.space/image/movie?w=400&h=225" />

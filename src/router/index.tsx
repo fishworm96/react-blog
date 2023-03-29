@@ -1,9 +1,11 @@
+import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import Category from '@/pages/Category'
-import Article from '@/pages/Article'
 import Layout from '@/pages/layout'
 import Main from '@/pages/layout/component/Content/Main'
-import ArticleTag from '@/pages/ArticleTag'
+
+const Article = lazy(() => import('@/pages/Article'))
+const ArticleTag = lazy(() => import('@/pages/ArticleTag'))
+const Category = lazy(() => import('@/pages/Category'))
 
 export const router = [
   {
@@ -19,17 +21,29 @@ export const router = [
         children: [
           {
             path: ':id',
-            element: <Article />,
+            element: (
+              <Suspense fallback={<div>...loading</div>}>
+                <Article />
+              </Suspense>
+            ),
           },
         ],
       },
       {
         path: 'category',
-        element: <Category />,
+        element: (
+          <Suspense fallback={<div>...loading</div>}>
+            <Category />
+          </Suspense>
+        ),
       },
       {
         path: 'tag',
-        element: <ArticleTag />,
+        element: (
+          <Suspense fallback={<div>...loading</div>}>
+            <ArticleTag />
+          </Suspense>
+        ),
       },
     ],
   },
