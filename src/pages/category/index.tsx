@@ -11,7 +11,7 @@ const Category = () => {
         <div className='text-5xl'>分类</div>
       </CardTitle>
       <CardContent>
-        <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3'>
+        <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3 px-32'>
           {
             count.map((_, index) => (
               <Link to='/' key={index}>
