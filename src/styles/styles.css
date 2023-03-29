@@ -21,11 +21,17 @@ html,body,#root{height:100%; overflow-x: hidden;}
     @apply text-lg
   }
 }
+
 @tailwind components;
+@layer components {
+  .mark-img img {
+      @apply w-full rounded-xl
+  }
+}
 
 @tailwind utilities;
 @layer utilities {
-  .h1 {
-    font-size: 3rem;
-  }
+  /* .mark-img img {
+      @apply w-full rounded-xl
+  } */
 }
