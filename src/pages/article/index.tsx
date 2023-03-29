@@ -16,7 +16,7 @@ const Article = () => {
   #### 1
   ##### 1
   ###### 1
-  1
+  ![img](https://api.lorem.space/image/movie?w=400&h=225)
 
   Here is some JavaScript code:
   ~~~js
@@ -53,7 +53,7 @@ const Article = () => {
         </div>
       </CardTitle>
       <CardContent>
-        <div className='text-gray-700 break-all w-full'>
+        <div className='text-gray-700 break-all w-full mark-img'>
           <Markdown content={markdown} />
         </div>
       </CardContent>
