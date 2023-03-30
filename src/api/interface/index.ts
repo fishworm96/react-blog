@@ -37,3 +37,10 @@ export namespace Home {
     createTime: string
   }
 }
+
+export namespace Tag {
+  export interface TagList {
+    id: number
+    name: string
+  }
+}

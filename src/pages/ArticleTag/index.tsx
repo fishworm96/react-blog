@@ -1,14 +1,32 @@
+import { useEffect, useState } from 'react'
+
 import Tag from 'components/Tag'
+import { reqGetTagList } from '@/api/modules/tag'
+
+interface TagList {
+  id: number
+  name: string
+}
 
 const ArticleTag = () => {
-  const tag = ['Golang', '啊啊啊', '啊啊啊啊', '啊啊啊啊啊']
+  const [tagList, setTagList] = useState<TagList[]>([])
+
+  const getTagList = async () => {
+    const { data } = await reqGetTagList()
+    console.log(data)
+    data && setTagList(data)
+  }
+
+  useEffect(() => {
+    getTagList()
+  }, [])
 
   return (
     <div className="flex justify-center items-center mt-10">
       <div className="w-1/2 h-80 rounded-2xl bg-slate-50 p-5">
         {
-          tag.map(item => (
-            <Tag size='large' key={item} tag={item} />
+          tagList.map(item => (
+            <Tag size='large' key={item.id} tag={item.name} />
           ))
         }
       </div>
