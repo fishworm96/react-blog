@@ -12,7 +12,7 @@ export interface ArticleList {
   title: string
   description: string
   tag: string[]
-  createTime: string
+  create_time: string
 }
 
 const Main = () => {

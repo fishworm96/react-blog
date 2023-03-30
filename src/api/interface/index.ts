@@ -34,7 +34,7 @@ export namespace Home {
     title: string
     description: string
     tag: string[]
-    createTime: string
+    create_time: string
   }
 }
 

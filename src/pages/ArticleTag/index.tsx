@@ -13,7 +13,6 @@ const ArticleTag = () => {
 
   const getTagList = async () => {
     const { data } = await reqGetTagList()
-    console.log(data)
     data && setTagList(data)
   }
 
