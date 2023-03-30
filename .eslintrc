@@ -5,6 +5,6 @@
     "no-console": "off",
     "curly": "off",
     "@typescript-eslint/brace-style": "off",
-    "indent": ["error", 2]
+    "indent": ["error", 2, { "SwitchCase": 1 }],
   }
 }
