@@ -1,10 +1,13 @@
 import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { message } from 'antd'
+import { AxiosCanceler } from './helper/axiosCancel'
 import type { ResultData } from './interface'
 import { showFullScreenLoading, tryHideFullScreenLoading } from '@/config/serviceLoading'
 import NProgress from '@/config/nprogress'
 import { ResultEnum } from '@/enums/httpEnum'
+
+const axiosCanceler = new AxiosCanceler()
 
 const config = {
   baseURL: '',
@@ -21,6 +24,7 @@ class RequestHttp {
     this.service.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
         NProgress.start()
+        axiosCanceler.addPending(config)
         config.headers!.noLoading || showFullScreenLoading()
         return { ...config }
       },
@@ -34,6 +38,8 @@ class RequestHttp {
       (response: AxiosResponse) => {
         const { data, config } = response
         NProgress.done()
+        // 请求结束后，移除本次请求(关闭loading)
+        axiosCanceler.removePending(config)
         tryHideFullScreenLoading()
         if (data.code === ResultEnum.OVERDUE) {
           message.error(data.msg)
@@ -48,6 +54,7 @@ class RequestHttp {
         return data
       },
       async (error: AxiosError) => {
+        // const { response } = error
         NProgress.done()
         tryHideFullScreenLoading()
         if (error.message === 'canceled')
@@ -55,6 +62,9 @@ class RequestHttp {
         // 请求超时单独判断，请求超时没有 response
         if (error.message.includes('timeout'))
           message.error('请求超时，请稍后再试')
+        // 根据响应的错误状态码，做不同的处理
+        // if (response)
+        //   checkStatus(response.status)
         if (!window.navigator.onLine)
           window.location.hash = '/500'
         return Promise.reject(error)
