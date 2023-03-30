@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Tag from 'components/Tag'
 import { reqGetTagList } from '@/api/modules/tag'
 
-interface TagList {
+export interface TagList {
   id: number
   name: string
 }

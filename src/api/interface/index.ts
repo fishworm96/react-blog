@@ -44,3 +44,10 @@ export namespace Tag {
     name: string
   }
 }
+
+export namespace Category {
+  export interface CategoryList {
+    id: number
+    name: string
+  }
+}

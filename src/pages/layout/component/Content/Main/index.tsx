@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 
 import Card from 'components/Card'
 import Side from 'components/Side'
+import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
+import { reqGetTagList } from '@/api/modules/tag'
 
 export interface ArticleList {
   id: string
@@ -15,10 +17,12 @@ export interface ArticleList {
 
 const Main = () => {
   const [articleList, setArticleList] = useState<ArticleList[]>([])
+  const [tagList, setTagList] = useState<TagList[]>([])
 
   const getArticleList = async () => {
-    const { data } = await reqGetArticleList()
-    data && setArticleList(data)
+    const [resArticleList, resTagList] = await Promise.all([reqGetArticleList(), reqGetTagList()])
+    resArticleList.data && setArticleList(resArticleList.data)
+    resTagList.data && setTagList(resTagList.data)
   }
 
   const changePage = (pageNumber: number) => {
@@ -37,15 +41,11 @@ const Main = () => {
             articleList && (articleList.map(item => (
               <Card
                 key={item.id}
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                tag={item.tag}
-                createTime={item.createTime} />
+                articleList={item} />
             )))
           }
         </div>
-        <Side />
+        <Side tagList={tagList} />
       </div>
       <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={60} onChange={changePage} />
     </>

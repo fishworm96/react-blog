@@ -4,7 +4,12 @@ import Description from './Description'
 import Title from './Title'
 import type { ArticleList } from '@/pages/layout/component/Content/Main'
 
-const Card = ({ id, title, description, tag, createTime }: ArticleList) => {
+interface Props {
+  articleList: ArticleList
+}
+
+const Card = ({ articleList }: Props) => {
+  const { id, title, description, createTime, tag } = articleList
   return (
     <div className='flex-col bg-indigo-50 p-5 lg:w-full h-full border-solid rounded-t-2xl rounded-b-2xl mt-10 shadow-xl'>
       <div>

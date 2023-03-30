@@ -1,9 +1,12 @@
 import Tag from 'components/Tag'
 import Avatar from './Avatar'
+import type { TagList } from '@/pages/ArticleTag'
 
-const Side = () => {
-  const tag = ['JavaScript', 'Go', 'TypeScript']
+interface Props {
+  tagList: TagList[]
+}
 
+const Side = ({ tagList }: Props) => {
   return (
     <div className='mt-10 w-72 hidden lg:block'>
       <Avatar />
@@ -36,7 +39,7 @@ const Side = () => {
       </div>
       <div className='mt-4 border-2 rounded-xl p-3'>
         {
-          tag.map(item => <Tag key={item} tag={item} />)
+          tagList.map(item => <Tag key={item.id} tag={item.name} />)
         }
       </div>
     </div>
