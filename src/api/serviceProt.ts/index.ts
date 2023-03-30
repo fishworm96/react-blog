@@ -1,1 +1,1 @@
-export const PORT1 = '/1'
+export const PORT1 = '/api/v1'

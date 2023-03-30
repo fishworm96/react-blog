@@ -1,7 +1,10 @@
-const Description = () => {
+interface Props {
+  description: string
+}
+const Description = ({ description }: Props) => {
   return (
     <div className="text-gray-700 my-2">
-      简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构简单描述下数据结构
+      {description}
     </div>
   )
 }

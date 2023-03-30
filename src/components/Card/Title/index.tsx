@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router'
 
 interface Props {
   id: string
+  title: string
 }
 
-const Title = ({ id }: Props) => {
+const Title = ({ id, title }: Props) => {
   const navigate = useNavigate()
 
   const onClick = () => {
@@ -15,7 +16,7 @@ const Title = ({ id }: Props) => {
   return (
     <div className='flex justify-between'>
       <Button onClick={onClick} className="border-none shadow-none border-transparent text-2xl font-semibold text-gray-600 pb-12">
-        数据结构
+        {title}
       </Button>
     </div>
   )

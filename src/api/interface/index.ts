@@ -27,3 +27,13 @@ export interface Tag {
   id: number
   name: string
 }
+
+export namespace Home {
+  export interface ArticleList {
+    id: string
+    title: string
+    description: string
+    tag: string[]
+    createTime: string
+  }
+}

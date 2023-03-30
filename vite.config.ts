@@ -35,7 +35,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
         '/api': {
           target: 'http://192.168.1.233:8080',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
+          // rewrite: path => path.replace(/^\/api/, ''),
         },
       },
     },

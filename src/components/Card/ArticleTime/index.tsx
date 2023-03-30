@@ -1,7 +1,10 @@
-const ArticleTime = () => {
+interface Props {
+  createTime: string
+}
+const ArticleTime = ({ createTime }: Props) => {
   return (
     <div className="flex">
-      <time className='ml-auto text-gray-600'>2023年3月16日</time>
+      <time className='ml-auto text-gray-600'>{createTime}</time>
     </div>
   )
 }
