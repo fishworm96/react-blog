@@ -51,3 +51,16 @@ export namespace Category {
     name: string
   }
 }
+
+export namespace Article {
+  export interface ArticleDetail {
+    authorId: string
+    authorName: string
+    communityId: number
+    title: string
+    tag: Tag.TagList[]
+    content: string
+    create_time: string
+    update_time: string
+  }
+}
