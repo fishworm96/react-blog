@@ -33,7 +33,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       // https: false,
       proxy: {
         '/api': {
-          target: 'http://192.168.1.233:8080',
+          target: 'http://127.0.0.1:8080',
           changeOrigin: true,
           // rewrite: path => path.replace(/^\/api/, ''),
         },

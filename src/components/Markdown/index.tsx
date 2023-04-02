@@ -1,36 +1,26 @@
-import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import remarkGfm from 'remark-gfm'
+import ReactMarkdown from 'markdown-to-jsx'
+import Prism from 'prismjs'
+import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/components/prism-typescript.min.js'
+import 'prismjs/components/prism-css.min.js'
+import 'prismjs/components/prism-go.min.js'
+import 'prismjs/components/prism-c.min.js'
+import 'prismjs/components/prism-csharp.min.js'
+import 'prismjs/components/prism-java.min.js'
+import 'prismjs/components/prism-jsx.min.js'
+import 'prismjs/components/prism-tsx.min.js'
 
 interface Props {
   content: string
 }
 
 const Markdown = ({ content }: Props) => {
+  Prism.highlightAll()
   return (
     <>
-      <ReactMarkdown
-        children={content}
-        components={{
-          code({ inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || '')
-            return (!inline && match)
-              ? (<SyntaxHighlighter
-                children={String(children).replace(/\n$/, '')}
-                style={darcula as any}
-                language={match[1]}
-                PreTag="div"
-                {...props}
-              />)
-              : (
-                <code className={className} {...props}>
-                  {children}
-                </code>)
-          },
-        }} remarkPlugins={[remarkGfm]}
-      />
+      <ReactMarkdown >{content}</ReactMarkdown>
     </>
   )
 }
+
 export default Markdown

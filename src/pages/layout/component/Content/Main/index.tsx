@@ -35,7 +35,7 @@ const Main = () => {
 
   return (
     <>
-      <div className='flex justify-center'>
+      <div className='flex justify-center flex-1'>
         <div className='flex flex-col items-center w-full lg:w-5/12 lg:mr-10'>
           {
             articleList && (articleList.map(item => (
