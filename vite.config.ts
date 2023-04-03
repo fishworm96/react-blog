@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import path from 'node:path'
 import type { ConfigEnv, UserConfig } from 'vite'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'

@@ -1,6 +1,7 @@
 import { Button } from 'antd'
 import type { SizeType } from 'antd/es/config-provider/SizeContext'
 import { useEffect, useState } from 'react'
+import { reqGetTagListByTag } from '@/api/modules/tag'
 
 interface Props {
   tag: string
@@ -24,13 +25,22 @@ const Tag = ({ tag, size = 'middle' }: Props) => {
     }
   }
 
+  const getTagListByTag = async (tag: string) => {
+    const { data } = await reqGetTagListByTag(tag)
+    console.log(data)
+  }
+
+  const onClick = () => {
+    getTagListByTag(tag)
+  }
+
   useEffect(() => {
     changeFontColor(tag)
   }, [])
 
   return (
     <>
-      <Button size={size} className={`${fontColor} ${fontDefault}`}
+      <Button size={size} className={`${fontColor} ${fontDefault}`} onClick={onClick}
       >
         {tag}
       </Button>
