@@ -28,13 +28,20 @@ export interface Tag {
   name: string
 }
 
+export interface ArticleListDetail {
+  id: string
+  title: string
+  description: string
+  tag: string[]
+  create_time: string
+}
+
 export namespace Home {
   export interface ArticleList {
-    id: string
-    title: string
-    description: string
-    tag: string[]
-    create_time: string
+    post_list: ArticleListDetail[]
+    total_pages: number
+    total_tag: number
+    total_category: number
   }
 }
 

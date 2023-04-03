@@ -6,22 +6,21 @@ import Side from 'components/Side'
 import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
 import { reqGetTagList } from '@/api/modules/tag'
-
-export interface ArticleList {
-  id: string
-  title: string
-  description: string
-  tag: string[]
-  create_time: string
-}
+import type { ArticleListDetail } from '@/api/interface'
 
 const Main = () => {
-  const [articleList, setArticleList] = useState<ArticleList[]>([])
+  const [articleList, setArticleList] = useState<ArticleListDetail[]>([])
   const [tagList, setTagList] = useState<TagList[]>([])
+  const [totalPages, setTotalPages] = useState<number>(10)
+  const [totalTag, setTotalTag] = useState<number>(1)
+  const [totalCategory, setTotalCategory] = useState<number>(1)
 
   const getArticleList = async () => {
     const [resArticleList, resTagList] = await Promise.all([reqGetArticleList(), reqGetTagList()])
-    resArticleList.data && setArticleList(resArticleList.data)
+    resArticleList.data && setArticleList(resArticleList.data.post_list)
+    resArticleList.data && setTotalPages(resArticleList.data.total_pages)
+    resArticleList.data && setTotalTag(resArticleList.data.total_tag)
+    resArticleList.data && setTotalCategory(resArticleList.data.total_category)
     resTagList.data && setTagList(resTagList.data)
   }
 
@@ -45,9 +44,9 @@ const Main = () => {
             )))
           }
         </div>
-        <Side tagList={tagList} />
+        <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} />
       </div>
-      <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={60} onChange={changePage} />
+      <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={totalPages} onChange={changePage} />
     </>
   )
 }

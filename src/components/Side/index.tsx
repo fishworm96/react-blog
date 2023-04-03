@@ -1,12 +1,17 @@
 import Tag from 'components/Tag'
 import Avatar from './Avatar'
+import { useSide } from './config'
 import type { TagList } from '@/pages/ArticleTag'
 
 interface Props {
   tagList: TagList[]
+  totalPages: number
+  totalTag: number
+  totalCategory: number
 }
 
-const Side = ({ tagList }: Props) => {
+const Side = ({ tagList, totalPages, totalTag, totalCategory }: Props) => {
+  const { SideTotal } = useSide({ totalPages, totalTag, totalCategory })
   return (
     <div className='mt-10 w-72 hidden lg:block'>
       <Avatar />
@@ -16,25 +21,15 @@ const Side = ({ tagList }: Props) => {
         <div className='mx-1'>123</div>
         <div className='mx-1'>123</div>
       </div>
-      <div className="stats stats-vertical lg:stats-horizontal shadow m-1">
-
-        <div className="stat">
-          <div className="stat-title text-center">标签</div>
-          <div className="stat-value">31</div>
-          {/* <div className="stat-desc">Jan</div> */}
-        </div>
-
-        <div className="stat">
-          <div className="stat-title text-center">文章</div>
-          <div className="stat-value">42</div>
-          {/* <div className="stat-desc">400</div> */}
-        </div>
-
-        <div className="stat">
-          <div className="stat-title text-center">分类</div>
-          <div className="stat-value">12</div>
-          {/* <div className="stat-desc">90</div> */}
-        </div>
+      <div className="stats stats-vertical lg:stats-horizontal shadow m-1 flex justify-center">
+        {
+          SideTotal.map(item => (
+            <div className="stat" key={item.name}>
+              <div className="stat-title text-center">{item.name}</div>
+              <div className="stat-value text-center">{item.total}</div>
+            </div>
+          ))
+        }
 
       </div>
       <div className='mt-4 border-2 rounded-xl p-3'>
