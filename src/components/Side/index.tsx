@@ -1,7 +1,9 @@
 import Tag from 'components/Tag'
+import { Link } from 'react-router-dom'
 import Avatar from './Avatar'
-import { useSide } from './config'
+import { useSide } from './useSide'
 import type { TagList } from '@/pages/ArticleTag'
+import { NAME } from '@/utils/constants'
 
 interface Props {
   tagList: TagList[]
@@ -11,15 +13,20 @@ interface Props {
 }
 
 const Side = ({ tagList, totalPages, totalTag, totalCategory }: Props) => {
-  const { SideTotal } = useSide({ totalPages, totalTag, totalCategory })
+  const { SideTotal, Account } = useSide({ totalPages, totalTag, totalCategory })
   return (
     <div className='mt-10 w-72 hidden lg:block'>
       <Avatar />
-      <div className='text-2xl p-2 text-center'>123</div>
-      <div className='flex justify-center pb-6 border-b-2 border-indigo-900'>
-        <div className='mx-1'>123</div>
-        <div className='mx-1'>123</div>
-        <div className='mx-1'>123</div>
+      <div className='text-2xl p-2 text-center'>{NAME}</div>
+      <div className='flex justify-center pb-4 border-b-2 border-indigo-900 leading-8'>
+        {
+          Account.map(item => (
+            <div className='mx-1 text-4xl' key={item.link}>
+              <Link to={item.link}>{item.icon}</Link>
+            </div>
+          ))
+
+        }
       </div>
       <div className="stats stats-vertical lg:stats-horizontal shadow m-1 flex justify-center">
         {

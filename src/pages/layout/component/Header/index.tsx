@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import { Header } from 'antd/es/layout/layout'
 import { Link } from 'react-router-dom'
-import { useLinkList } from './config'
+import { useLinkList } from './useLinkList'
 import HeaderDrawer from './HeaderDrawer'
 
 const BaseHeader = () => {
