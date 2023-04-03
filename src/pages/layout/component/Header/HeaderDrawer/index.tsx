@@ -19,7 +19,7 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
   }
 
   return (
-    <div className='-m-20 lg:hidden'>
+    <div className='lg:hidden sm:ml-8'>
       <Button type="primary" onClick={showDrawer}>
         三
       </Button>

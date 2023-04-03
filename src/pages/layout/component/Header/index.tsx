@@ -11,7 +11,7 @@ const BaseHeader = () => {
     <Header className="flex justify-around items-center sticky top-0 z-40 border-b-2 fide shadow-md bg-gradient-to-r font-middle from-green-400 via-blue-300 to-blue-500">
       <div>
         <Link to='/'>
-          <div className='font-title text-primary inline-flex text-lg transition-all duration-200 sm:text-3xl'>
+          <div className='font-title text-primary inline-flex text-lg transition-all duration-200 sm:text-3xl mx-5'>
             <span className="uppercase text-base-content">c</span>
             <span className="lowercase text-primary">ode</span>
           </div>
@@ -20,7 +20,7 @@ const BaseHeader = () => {
       <div className='hidden lg:block'>
         {
           NavLinkList.map(item => (
-            <Link className='mx-1' to={item.path} key={item.path}>
+            <Link to={item.path} key={item.path}>
               <Button className='text-2xl h-10 border-none' key={item.path}>{item.name}</Button>
             </Link>
           ))
