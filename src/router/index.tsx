@@ -1,11 +1,11 @@
 import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loading from 'components/Loading'
-import MySkeleton from 'components/MySkeleton'
+// import MySkeleton from 'components/MySkeleton'
 import Error404 from 'components/404'
 import Layout from '@/pages/layout'
-import Main from '@/pages/layout/component/Content/Main'
 
+const Main = lazy(() => import('@/pages/layout/component/Content/Main'))
 const Article = lazy(() => import('@/pages/Article'))
 const ArticleTag = lazy(() => import('@/pages/ArticleTag'))
 const Category = lazy(() => import('@/pages/Category'))
@@ -18,7 +18,11 @@ export const router = [
     children: [
       {
         path: '',
-        element: <Main />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Main />,
+          </Suspense>
+        ),
       },
       {
         path: 'article/:id',
@@ -31,7 +35,7 @@ export const router = [
       {
         path: 'category',
         element: (
-          <Suspense fallback={<MySkeleton />}>
+          <Suspense fallback={<Loading />}>
             <Category />
           </Suspense>
         ),
@@ -39,7 +43,7 @@ export const router = [
       {
         path: 'tag',
         element: (
-          <Suspense fallback={<MySkeleton />}>
+          <Suspense fallback={<Loading />}>
             <ArticleTag />
           </Suspense>
         ),
