@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import path from 'node:path'
 import type { ConfigEnv, UserConfig } from 'vite'
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import { terser } from 'rollup-plugin-terser'
 
 import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import'
@@ -10,6 +12,9 @@ import tailwindcss from 'tailwindcss'
 // https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv): UserConfig => {
   return {
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'axios'],
+    },
     resolve: {
       alias: {
         'components': path.resolve(__dirname, 'src', 'components'),
@@ -39,6 +44,29 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
         },
       },
     },
-    plugins: [react()],
+    plugins: [
+      react(),
+      splitVendorChunkPlugin(),
+    ],
+    build: {
+      outDir: 'dist',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+      rollupOptions: {
+        plugins: [
+          terser(),
+        ],
+        output: {
+          chunkFileNames: 'assets/js[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        },
+      },
+    },
   }
 })

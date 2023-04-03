@@ -2,10 +2,10 @@ import Tag from '../Tag'
 import ArticleTime from './ArticleTime'
 import Description from './Description'
 import Title from './Title'
-import type { ArticleList } from '@/pages/layout/component/Content/Main'
+import type { ArticleListDetail } from '@/api/interface'
 
 interface Props {
-  articleList: ArticleList
+  articleList: ArticleListDetail
 }
 
 const Card = ({ articleList }: Props) => {
