@@ -1,4 +1,3 @@
-// import Content from './component/Content'
 import { Outlet } from 'react-router'
 import Content from './component/Content'
 import BaseFooter from './component/Footer'

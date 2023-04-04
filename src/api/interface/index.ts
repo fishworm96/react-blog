@@ -57,6 +57,11 @@ export namespace Category {
     id: number
     name: string
   }
+  export interface CategoryDetailList {
+    community_detail: Category.CategoryList
+    post_list: ArticleListDetail[]
+    total_pages: number
+  }
 }
 
 export namespace Article {

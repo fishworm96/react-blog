@@ -9,6 +9,7 @@ const Main = lazy(() => import('@/pages/layout/component/Content/Main'))
 const Article = lazy(() => import('@/pages/Article'))
 const ArticleTag = lazy(() => import('@/pages/ArticleTag'))
 const Category = lazy(() => import('@/pages/Category'))
+const ArticleDetail = lazy(() => import('@/pages/ArticleDetail'))
 
 export const router = [
   {
@@ -20,7 +21,7 @@ export const router = [
         path: '',
         element: (
           <Suspense fallback={<Loading />}>
-            <Main />,
+            <Main />
           </Suspense>
         ),
       },
@@ -34,11 +35,24 @@ export const router = [
       },
       {
         path: 'category',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Category />
-          </Suspense>
-        ),
+        children: [
+          {
+            path: '',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <Category />
+              </Suspense>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ArticleDetail />
+              </Suspense>
+            ),
+          },
+        ],
       },
       {
         path: 'tag',
