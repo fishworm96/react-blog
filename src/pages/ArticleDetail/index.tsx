@@ -6,7 +6,7 @@ import Description from 'components/Card/Description'
 import ArticleTime from 'components/Card/ArticleTime'
 import Title from 'components/Card/Title'
 import EmptyPage from 'components/EmptyPage'
-import BasicPagination from 'components/BasicPagination/idnex'
+import BasicPagination from 'components/BasicPagination'
 import type { ArticleListDetail } from '@/api/interface'
 import { reqGetCategoryListByID } from '@/api/modules/category'
 

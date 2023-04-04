@@ -1,14 +1,14 @@
 import { Button } from 'antd'
 import type { SizeType } from 'antd/es/config-provider/SizeContext'
 import { useEffect, useState } from 'react'
-import { reqGetTagListByTag } from '@/api/modules/tag'
 
 interface Props {
   tag: string
   size?: SizeType
+  onClick?: () => void
 }
 
-const Tag = ({ tag, size = 'middle' }: Props) => {
+const Tag = ({ tag, size = 'middle', onClick }: Props) => {
   const [fontColor, setFontColor] = useState<string>('bg-yellow-500')
   const fontDefault = 'hover:bg-red-600 m-1 border-none'
 
@@ -23,15 +23,6 @@ const Tag = ({ tag, size = 'middle' }: Props) => {
     } else if (len <= 6) {
       setFontColor('bg-blue-500')
     }
-  }
-
-  const getTagListByTag = async (tag: string) => {
-    const { data } = await reqGetTagListByTag(tag)
-    console.log(data)
-  }
-
-  const onClick = () => {
-    getTagListByTag(tag)
   }
 
   useEffect(() => {

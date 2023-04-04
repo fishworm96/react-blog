@@ -10,9 +10,10 @@ interface Props {
   totalPages: number
   totalTag: number
   totalCategory: number
+  onClick: (tag: string) => void
 }
 
-const Side = ({ tagList, totalPages, totalTag, totalCategory }: Props) => {
+const Side = ({ tagList, totalPages, totalTag, totalCategory, onClick }: Props) => {
   const { SideTotal, Account } = useSide({ totalPages, totalTag, totalCategory })
   return (
     <div className='mt-10 w-72 hidden lg:block'>
@@ -41,7 +42,7 @@ const Side = ({ tagList, totalPages, totalTag, totalCategory }: Props) => {
       </div>
       <div className='mt-4 border-2 rounded-xl p-3'>
         {
-          tagList.map(item => <Tag key={item.id} tag={item.name} />)
+          tagList.map(item => <Tag key={item.id} tag={item.name} onClick={() => onClick(item.name)} />)
         }
       </div>
     </div>

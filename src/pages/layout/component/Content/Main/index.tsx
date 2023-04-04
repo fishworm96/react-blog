@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 
 import Card from 'components/Card'
 import Side from 'components/Side'
-import BasicPagination from 'components/BasicPagination/idnex'
+import BasicPagination from 'components/BasicPagination'
+import { useNavigate } from 'react-router'
 import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
 import { reqGetTagList } from '@/api/modules/tag'
 import type { ArticleListDetail } from '@/api/interface'
 
 const Main = () => {
+  const navigate = useNavigate()
   const [articleList, setArticleList] = useState<ArticleListDetail[]>([])
   const [tagList, setTagList] = useState<TagList[]>([])
   const [totalPages, setTotalPages] = useState<number>(10)
@@ -28,6 +30,11 @@ const Main = () => {
     console.log(page, size)
   }
 
+  const onClick = (tag: string) => {
+    navigate(`/tag/${tag}`)
+    console.log(tag)
+  }
+
   useEffect(() => {
     getArticleList()
   }, [])
@@ -40,11 +47,13 @@ const Main = () => {
             articleList && (articleList.map(item => (
               <Card
                 key={item.id}
-                articleList={item} />
+                articleList={item}
+                onClick={onClick}
+              />
             )))
           }
         </div>
-        <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} />
+        <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} onClick={onClick} />
       </div>
       <BasicPagination totalPages={totalPages} onChange={changePage} />
     </>

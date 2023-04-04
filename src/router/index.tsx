@@ -4,6 +4,7 @@ import Loading from 'components/Loading'
 // import MySkeleton from 'components/MySkeleton'
 import Error404 from 'components/404'
 import Layout from '@/pages/layout'
+import TagDetail from '@/pages/TagDetail'
 
 const Main = lazy(() => import('@/pages/layout/component/Content/Main'))
 const Article = lazy(() => import('@/pages/Article'))
@@ -56,11 +57,24 @@ export const router = [
       },
       {
         path: 'tag',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <ArticleTag />
-          </Suspense>
-        ),
+        children: [
+          {
+            path: '',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ArticleTag />
+              </Suspense>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <TagDetail />
+              </Suspense>
+            ),
+          },
+        ],
       },
     ],
   },

@@ -50,6 +50,12 @@ export namespace Tag {
     id: number
     name: string
   }
+  export interface TagDetailList {
+    id: number
+    name: string
+    post: ArticleListDetail[]
+    total_pages: number
+  }
 }
 
 export namespace Category {
