@@ -1,8 +1,8 @@
-import { Pagination } from 'antd'
 import { useEffect, useState } from 'react'
 
 import Card from 'components/Card'
 import Side from 'components/Side'
+import BasicPagination from 'components/BasicPagination/idnex'
 import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
 import { reqGetTagList } from '@/api/modules/tag'
@@ -24,8 +24,8 @@ const Main = () => {
     resTagList.data && setTagList(resTagList.data)
   }
 
-  const changePage = (pageNumber: number) => {
-    console.log(pageNumber)
+  const changePage = (page: number, size: number) => {
+    console.log(page, size)
   }
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Main = () => {
         </div>
         <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} />
       </div>
-      <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={totalPages} onChange={changePage} />
+      <BasicPagination totalPages={totalPages} onChange={changePage} />
     </>
   )
 }

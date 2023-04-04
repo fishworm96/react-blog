@@ -6,14 +6,14 @@ import Description from 'components/Card/Description'
 import ArticleTime from 'components/Card/ArticleTime'
 import Title from 'components/Card/Title'
 import EmptyPage from 'components/EmptyPage'
-import { Pagination } from 'antd'
+import BasicPagination from 'components/BasicPagination/idnex'
 import type { ArticleListDetail } from '@/api/interface'
 import { reqGetCategoryListByID } from '@/api/modules/category'
 
 const ArticleDetail = () => {
   const { id } = useParams()
   const [articleList, setArticleList] = useState<ArticleListDetail[]>([])
-  const [totalPates, setTotalPages] = useState<number>(1)
+  const [totalPages, setTotalPages] = useState<number>(1)
   const [title, setTitle] = useState<string>('')
 
   const getCategory = async () => {
@@ -35,7 +35,7 @@ const ArticleDetail = () => {
 
   return (
     articleList
-      ? <CardDetail title={title} totalPages={totalPates}>
+      ? <CardDetail title={title} totalPages={totalPages}>
         {
           articleList.map(item => (
             <div key={`${item.id}`} className='flex-col bg-white p-5 w-full border-solid rounded-t-2xl rounded-b-2xl mt-5 shadow-xl'>
@@ -50,9 +50,7 @@ const ArticleDetail = () => {
             </div>
           ))
         }
-        <div className='flex'>
-          <Pagination className='mx-auto my-4 mt-9' defaultCurrent={1} total={totalPates} onChange={onChange} />
-        </div>
+        <BasicPagination totalPages={totalPages} onChange={onChange} />
       </CardDetail>
       : <EmptyPage />
   )
