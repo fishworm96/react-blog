@@ -25,8 +25,11 @@ const ArticleDetail = () => {
     }
   }
 
-  const onChange = (page: number, size: number) => {
-    console.log(page, size)
+  const onChange = async (page: number, size: number) => {
+    const { data } = await reqGetCategoryListByID(+id!, page, size)
+    data && setArticleList(data.post_list)
+    data && setTitle(data.community_detail.name)
+    data && setTotalPages(data.total_pages)
   }
 
   useEffect(() => {

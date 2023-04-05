@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import Card from 'components/Card'
 import Side from 'components/Side'
 import BasicPagination from 'components/BasicPagination'
-import { useNavigate } from 'react-router'
+import EmptyPage from 'components/EmptyPage'
 import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
 import { reqGetTagList } from '@/api/modules/tag'
@@ -26,13 +27,16 @@ const Main = () => {
     resTagList.data && setTagList(resTagList.data)
   }
 
-  const changePage = (page: number, size: number) => {
-    console.log(page, size)
+  const changePage = async (page: number, size: number) => {
+    const { data } = await reqGetArticleList(page, size)
+    setArticleList(data!.post_list)
+    setTotalPages(data!.total_pages)
+    setTotalTag(data!.total_tag)
+    setTotalCategory(data!.total_category)
   }
 
   const onClick = (tag: string) => {
     navigate(`/tag/${tag}`)
-    console.log(tag)
   }
 
   useEffect(() => {
@@ -40,23 +44,25 @@ const Main = () => {
   }, [])
 
   return (
-    <>
-      <div className='flex justify-center flex-1'>
-        <div className='flex flex-col items-center w-11/12 lg:w-5/12 lg:mr-10'>
-          {
-            articleList && (articleList.map(item => (
-              <Card
-                key={item.id}
-                articleList={item}
-                onClick={onClick}
-              />
-            )))
-          }
+    articleList
+      ? (<>
+        <div className='flex justify-center flex-1'>
+          <div className='flex flex-col items-center w-11/12 lg:w-5/12 lg:mr-10'>
+            {
+              (articleList.map(item => (
+                <Card
+                  key={item.id}
+                  articleList={item}
+                  onClick={onClick}
+                />
+              )))
+            }
+          </div>
+          <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} onClick={onClick} />
         </div>
-        <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} onClick={onClick} />
-      </div>
-      <BasicPagination totalPages={totalPages} onChange={changePage} />
-    </>
+        <BasicPagination totalPages={totalPages} onChange={changePage} />
+      </>)
+      : <EmptyPage />
   )
 }
 export default Main
