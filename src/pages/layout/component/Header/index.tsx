@@ -8,7 +8,7 @@ const BaseHeader = () => {
   const { NavLinkList } = useLinkList()
 
   return (
-    <Header className="flex justify-around items-center sticky top-0 z-40 border-b-2 fide shadow-md bg-gradient-to-r font-middle from-green-400 via-blue-300 to-blue-500">
+    <Header className="flex justify-around items-center sticky top-0 z-40 border-b-2 shadow-md bg-gradient-to-r font-middle from-green-400 via-blue-300 to-blue-500">
       <div>
         <Link to='/'>
           <div className='font-title text-primary inline-flex text-lg transition-all duration-200 sm:text-3xl mx-5'>
