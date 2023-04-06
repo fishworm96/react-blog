@@ -8,6 +8,7 @@ export const showFullScreenLoading = () => {
   if (needLoadingRequestCount === 0) {
     const dom = document.createElement('div')
     dom.setAttribute('id', 'loading')
+    dom.style.display = 'none'
     document.body.append(dom)
     ReactDOM.createRoot(dom).render(<Loading />)
   }
