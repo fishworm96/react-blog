@@ -6,7 +6,7 @@ interface Props {
 
 const CardHeader = ({ children }: Props) => {
   return (
-    <div className='flex flex-col items-center h-full'>
+    <div className='flex flex-col items-center h-full lg:w-full'>
       {children}
     </div>
   )

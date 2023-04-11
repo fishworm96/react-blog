@@ -9,6 +9,7 @@ import 'prismjs/components/prism-csharp.min.js'
 import 'prismjs/components/prism-java.min.js'
 import 'prismjs/components/prism-jsx.min.js'
 import 'prismjs/components/prism-tsx.min.js'
+import 'prismjs/components/prism-sql.min.js'
 
 interface Props {
   content: string
@@ -18,7 +19,7 @@ const Markdown = ({ content }: Props) => {
   Prism.highlightAll()
   return (
     <>
-      <ReactMarkdown >{content}</ReactMarkdown>
+      <ReactMarkdown>{content}</ReactMarkdown>
     </>
   )
 }

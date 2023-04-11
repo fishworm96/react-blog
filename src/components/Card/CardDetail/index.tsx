@@ -12,13 +12,13 @@ interface Props {
 const CardDetail = ({ title, totalPages, children }: Props) => {
   return (
     <CardHeader>
-      <CardTitle>
+      <CardTitle width='w-10/12'>
         <div className='flex flex-col justify-center items-center text-zinc-500'>
           <div className='text-4xl'>{title}</div>
           <div className='text-sm'>{totalPages} 篇文章</div>
         </div>
       </CardTitle>
-      <CardContent>
+      <CardContent width='w-10/12'>
         {children}
       </CardContent>
     </CardHeader>
