@@ -7,9 +7,11 @@ import CardHeader from 'components/Card/CardHeader'
 import CardTitle from 'components/Card/CardTitle'
 import Tag from 'components/Tag'
 import SideBar from './SideBar'
+import Catalog from './Catalog'
 import { reqGetArticleDetail } from '@/api/modules/article'
-import type { Tag as ArticleTag } from '@/api/interface'
+import type { Tag as ArticleTag, Category } from '@/api/interface'
 import { getYMDHMS } from '@/utils/format/time'
+import { reqGetArticleListByCategoryID } from '@/api/modules/category'
 
 const Article = () => {
   const { id } = useParams()
@@ -18,8 +20,9 @@ const Article = () => {
   const [tag, setTag] = useState<ArticleTag.TagList[]>([])
   const [createTime, setCreateTime] = useState<string>('')
   const [updateTime, setUpdateTime] = useState<string>('')
+  const [categoryList, setCategoryList] = useState<Category.PostDetailList[]>([])
 
-  const GetArticleDetail = async () => {
+  const getArticleDetail = async () => {
     if (id) {
       const { data } = await reqGetArticleDetail(id)
       data && setArticle(data.content)
@@ -30,13 +33,19 @@ const Article = () => {
     }
   }
 
+  const getArticleList = async () => {
+    const { data } = await reqGetArticleListByCategoryID()
+    data && setCategoryList(data)
+  }
+
   useEffect(() => {
-    GetArticleDetail()
-  }, [])
+    getArticleDetail()
+    getArticleList()
+  }, [id])
 
   return (
     <div className='flex justify-center'>
-      {/* <SideBar content={article} /> */}
+      <Catalog categoryList={categoryList} id={id ?? '0'}/>
       <div className='px-10 w-[1100px]'>
         <CardHeader>
           <CardTitle width='w-full'>

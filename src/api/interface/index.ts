@@ -68,6 +68,11 @@ export namespace Category {
     post_list: ArticleListDetail[]
     total_pages: number
   }
+  export interface PostDetailList {
+    id: number
+    name: string
+    post: ArticleListDetail[]
+  }
 }
 
 export namespace Article {

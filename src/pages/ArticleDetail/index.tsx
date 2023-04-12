@@ -8,7 +8,7 @@ import Title from 'components/Card/Title'
 import EmptyPage from 'components/EmptyPage'
 import BasicPagination from 'components/BasicPagination'
 import type { ArticleListDetail } from '@/api/interface'
-import { reqGetCategoryListByID } from '@/api/modules/category'
+import { reqGetCategoryListByIDWithPagination } from '@/api/modules/category'
 
 const ArticleDetail = () => {
   const { id } = useParams()
@@ -18,7 +18,7 @@ const ArticleDetail = () => {
 
   const getCategory = async () => {
     if (id) {
-      const { data } = await reqGetCategoryListByID(+id)
+      const { data } = await reqGetCategoryListByIDWithPagination(+id)
       data && setArticleList(data.post_list)
       data && setTitle(data.community_detail.name)
       data && setTotalPages(data.total_pages)
@@ -26,7 +26,7 @@ const ArticleDetail = () => {
   }
 
   const onChange = async (page: number, size: number) => {
-    const { data } = await reqGetCategoryListByID(+id!, page, size)
+    const { data } = await reqGetCategoryListByIDWithPagination(+id!, page, size)
     data && setArticleList(data.post_list)
     data && setTitle(data.community_detail.name)
     data && setTotalPages(data.total_pages)
