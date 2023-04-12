@@ -24,18 +24,18 @@ const Category = () => {
 
   return (
     <CardHeader>
-      <div className='w-11/12 lg:w-9/12'>
+      <div className='flex justify-center w-11/12 lg:w-8/12'>
         <CardTitle width='w-10/12'>
           <div className='text-5xl'>分类</div>
         </CardTitle>
       </div>
-      <div className='lg:w-9/12 w-10/12'>
+      <div className='flex justify-center lg:w-8/12 w-11/12'>
         <CardContent width='w-10/12'>
-          <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3 px-32 cursor-pointer'>
+          <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3 px-32'>
             {
               categoryList.map(item => (
                 <Link key={item.name} to={`/category/${item.id}`}>
-                  <div className='card w-72 h-40 my-3 bg-base-100 shadow-xl image-full'>
+                  <div className='card w-72 h-40 my-3 bg-base-100 shadow-xl image-full cursor-pointer'>
                     <figure>
                       <img src="https://api.lorem.space/image/movie?w=400&h=225" />
                     </figure>

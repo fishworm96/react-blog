@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-type Width = 'w-full' | 'w-10/12'
+type Width = 'w-full' | 'w-10/12' | 'w-8/12'
 interface Props {
   children: ReactNode
   width: Width
