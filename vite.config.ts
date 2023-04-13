@@ -11,7 +11,7 @@ import tailwindcss from 'tailwindcss'
 // https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv): UserConfig => {
   return {
-    base: './',
+    base: '/',
     optimizeDeps: {
       include: ['react', 'react-dom', 'axios'],
     },
@@ -38,7 +38,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       // https: false,
       proxy: {
         '/api': {
-          target: 'http://127.0.0.1:8080',
+          target: 'http://www.fishworm.top',
           changeOrigin: true,
           // rewrite: path => path.replace(/^\/api/, ''),
         },
@@ -49,7 +49,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       splitVendorChunkPlugin(),
     ],
     build: {
-      outDir: 'dist',
+      outDir: 'dist_home',
       minify: 'terser',
       terserOptions: {
         compress: {
