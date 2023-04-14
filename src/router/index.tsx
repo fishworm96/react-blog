@@ -1,10 +1,11 @@
 import { Suspense, lazy } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 import Loading from 'components/Loading'
 // import MySkeleton from 'components/MySkeleton'
 import Error404 from 'components/404'
 import Layout from '@/pages/layout'
 import TagDetail from '@/pages/TagDetail'
+import { PREFIX } from '@/utils/constants'
 
 const Main = lazy(() => import('@/pages/layout/component/Content/Main'))
 const Article = lazy(() => import('@/pages/Article'))
@@ -14,7 +15,11 @@ const ArticleDetail = lazy(() => import('@/pages/ArticleDetail'))
 
 export const router = [
   {
-    path: '/',
+    path: '',
+    element: <Navigate to='blog' />,
+  },
+  {
+    path: `${PREFIX}`,
     element: <Layout />,
     errorElement: <Error404 />,
     children: [

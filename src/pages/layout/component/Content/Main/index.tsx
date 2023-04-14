@@ -9,6 +9,7 @@ import type { TagList } from '@/pages/ArticleTag'
 import { reqGetArticleList } from '@/api/modules/home'
 import { reqGetTagList } from '@/api/modules/tag'
 import type { ArticleListDetail } from '@/api/interface'
+import { PREFIX } from '@/utils/constants'
 
 const Main = () => {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const Main = () => {
   }
 
   const onClick = (tag: string) => {
-    navigate(`/tag/${tag}`)
+    navigate(`${PREFIX}/tag/${tag}`)
   }
 
   useEffect(() => {

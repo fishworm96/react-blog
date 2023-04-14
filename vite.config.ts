@@ -11,7 +11,7 @@ import tailwindcss from 'tailwindcss'
 // https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv): UserConfig => {
   return {
-    base: '/',
+    base: '/blog',
     optimizeDeps: {
       include: ['react', 'react-dom', 'axios'],
     },
@@ -49,7 +49,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       splitVendorChunkPlugin(),
     ],
     build: {
-      outDir: 'dist_home',
+      outDir: 'dist',
       minify: 'terser',
       terserOptions: {
         compress: {

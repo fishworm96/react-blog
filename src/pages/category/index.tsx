@@ -4,6 +4,7 @@ import CardTitle from 'components/Card/CardTitle'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { reqGetCategoryList } from '@/api/modules/category'
+import { PREFIX } from '@/utils/constants'
 
 interface CategoryList {
   id: number
@@ -34,7 +35,7 @@ const Category = () => {
           <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3 px-32'>
             {
               categoryList.map(item => (
-                <Link key={item.name} to={`/category/${item.id}`}>
+                <Link key={item.name} to={`${PREFIX}/category/${item.id}`}>
                   <div className='card w-72 h-40 my-3 bg-base-100 shadow-xl image-full cursor-pointer'>
                     <figure>
                       <img src="https://api.lorem.space/image/movie?w=400&h=225" />

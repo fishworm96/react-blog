@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import EmptyPage from 'components/EmptyPage'
 import { reqGetPostListByTag } from '@/api/modules/tag'
 import type { ArticleListDetail } from '@/api/interface'
+import { PREFIX } from '@/utils/constants'
 
 const TagDetail = () => {
   const navigate = useNavigate()
@@ -32,7 +33,7 @@ const TagDetail = () => {
   }
 
   const onClick = (tag: string) => {
-    navigate(`/tag/${tag}`, { replace: true })
+    navigate(`${PREFIX}/tag/${tag}`, { replace: true })
   }
 
   useEffect(() => {

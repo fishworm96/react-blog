@@ -1,5 +1,6 @@
 import { Button } from 'antd'
 import { useNavigate } from 'react-router'
+import { PREFIX } from '@/utils/constants'
 
 interface Props {
   id: string
@@ -10,7 +11,7 @@ const Title = ({ id, title }: Props) => {
   const navigate = useNavigate()
 
   const onClick = () => {
-    navigate(`/article/${id}`)
+    navigate(`${PREFIX}/article/${id}`)
   }
 
   return (

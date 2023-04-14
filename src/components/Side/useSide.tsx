@@ -1,5 +1,5 @@
 import { GithubOutlined } from '@ant-design/icons'
-import { GITHUBLINK } from '@/utils/constants'
+import { GITHUB_LINK } from '@/utils/constants'
 
 interface Total {
   totalTag?: number
@@ -14,7 +14,7 @@ export const useSide = ({ totalTag, totalPages, totalCategory }: Total) => {
   ]
   const Account = [
     {
-      link: GITHUBLINK,
+      link: GITHUB_LINK,
       icon: <GithubOutlined />,
     },
   ]
