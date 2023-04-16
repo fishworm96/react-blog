@@ -1,3 +1,4 @@
+import MenuFoldOutlined from '@ant-design/icons/lib/icons/MenuFoldOutlined'
 import { Button, Drawer } from 'antd'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
@@ -20,10 +21,10 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
   }
 
   return (
-    <div className='lg:hidden sm:ml-8'>
-      <Button type="primary" onClick={showDrawer}>
-        三
-      </Button>
+    <div className='lg:hidden mx-2'>
+      <button className='flex text-xl' onClick={showDrawer}>
+        <MenuFoldOutlined />
+      </button>
       <Drawer style={{ backgroundColor: 'rgb(248 250 252)' }} className='bg-black' width={150} placement="right" closable={false} onClose={onClose} open={open}>
         <div>
           {
