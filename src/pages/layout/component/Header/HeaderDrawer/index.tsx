@@ -7,6 +7,7 @@ const HeaderDrawer = ({ menu }: { menu: { name: string; path: string }[] }) => {
   const [open, setOpen] = useState(false)
 
   const onClick = (path: string) => {
+    setOpen(false)
     navigate(path)
   }
 

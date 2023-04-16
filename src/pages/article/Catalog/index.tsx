@@ -3,6 +3,7 @@ import { Tree } from 'antd'
 import type { DataNode, TreeProps } from 'antd/es/tree'
 import { useNavigate } from 'react-router'
 import type { Category } from '@/api/interface'
+import { PREFIX } from '@/utils/constants'
 
 const { DirectoryTree } = Tree
 
@@ -17,10 +18,10 @@ const Catalog = ({ categoryList, id }: Props) => {
     const len = info.node.pos.length
     const key = info.node.key
     if (len === 3) {
-      navigate(`/category/${key}`)
+      navigate(`${PREFIX}/category/${key}`)
       return
     }
-    navigate(`/article/${key}`)
+    navigate(`${PREFIX}/article/${key}`)
   }
 
   const formatTreeData = (categoryList: Category.PostDetailList[]): DataNode[] => {
