@@ -1,9 +1,9 @@
 import { Button } from 'antd'
 import { Header } from 'antd/es/layout/layout'
 import { Link } from 'react-router-dom'
-import SearchOutlined from '@ant-design/icons/lib/icons/SearchOutlined'
 import { useLinkList } from './useLinkList'
 import HeaderDrawer from './HeaderDrawer'
+import SearchInput from './SearchInput/SearchInput'
 
 const BaseHeader = () => {
   const { NavLinkList } = useLinkList()
@@ -27,10 +27,7 @@ const BaseHeader = () => {
           ))
         }
       </div>
-      <div className='flex h-9 relative'>
-        <span className='text-xl absolute left-1 -top-5'><SearchOutlined /></span>
-        <input placeholder='请输入搜索内容' className='h-full lg:w-96 rounded-2xl pl-8' />
-      </div>
+      <SearchInput />
       <HeaderDrawer menu={NavLinkList} />
     </Header>
   )

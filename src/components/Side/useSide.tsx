@@ -1,4 +1,4 @@
-import { GithubOutlined } from '@ant-design/icons'
+import GithubOutlined from '@ant-design/icons/lib/icons/GithubOutlined'
 import { GITHUB_LINK } from '@/utils/constants'
 
 interface Total {

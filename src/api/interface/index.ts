@@ -5,7 +5,7 @@ export interface Result {
 }
 
 // 请求响应参数（包含 data）
-export interface ResultData<T = any> extends Result {
+export interface ResultData<T = unknown> extends Result {
   data?: T
 }
 

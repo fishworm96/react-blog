@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Tag from 'components/Tag'
 import { useNavigate } from 'react-router'
 import { reqGetTagList } from '@/api/modules/tag'
+import { PREFIX } from '@/utils/constants'
 
 export interface TagList {
   id: number
@@ -19,7 +20,7 @@ const ArticleTag = () => {
   }
 
   const onClick = (tag: string) => {
-    navigate(`/tag/${tag}`)
+    navigate(`${PREFIX}/tag/${tag}`)
   }
 
   useEffect(() => {

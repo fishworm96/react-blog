@@ -2,6 +2,8 @@ import path from 'node:path'
 import type { ConfigEnv, UserConfig } from 'vite'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
+import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
 // import { terser } from 'rollup-plugin-terser'
 
 import autoprefixer from 'autoprefixer'
@@ -12,9 +14,6 @@ import tailwindcss from 'tailwindcss'
 export default defineConfig((mode: ConfigEnv): UserConfig => {
   return {
     base: '/blog',
-    optimizeDeps: {
-      include: ['react', 'react-dom', 'axios'],
-    },
     resolve: {
       alias: {
         'components': path.resolve(__dirname, 'src', 'components'),
@@ -47,6 +46,37 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
     plugins: [
       react(),
       splitVendorChunkPlugin(),
+      dts(),
+      importToCDN({
+        modules: [
+          {
+            name: 'react',
+            var: 'React',
+            path: 'https://unpkg.com/react@18/umd/react.production.min.js',
+          },
+          {
+            name: 'react-dom',
+            var: 'ReactDOM',
+            path: 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
+          },
+          {
+            name: 'axios',
+            var: 'axios',
+            path: 'https://unpkg.com/axios/dist/axios.min.js',
+          },
+          {
+            name: 'dayjs',
+            var: 'dayjs',
+            path: 'https://cdn.staticfile.org/dayjs/1.11.7/dayjs.min.js',
+          },
+          {
+            name: 'antd',
+            var: 'antd',
+            path: 'https://cdn.bootcdn.net/ajax/libs/antd/5.3.1/antd.min.js',
+            css: 'https://cdn.bootcdn.net/ajax/libs/antd/5.3.1/reset.min.css',
+          },
+        ],
+      }),
     ],
     build: {
       outDir: 'dist',
@@ -59,7 +89,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       },
       rollupOptions: {
         plugins: [
-          // terser(),
+          // terser()
         ],
         output: {
           chunkFileNames: 'assets/js[name]-[hash].js',

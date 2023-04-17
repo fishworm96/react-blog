@@ -1,7 +1,7 @@
-import { DownOutlined } from '@ant-design/icons'
 import { Tree } from 'antd'
 import type { DataNode, TreeProps } from 'antd/es/tree'
 import { useNavigate } from 'react-router'
+import DownOutlined from '@ant-design/icons/lib/icons/DownOutlined'
 import type { Category } from '@/api/interface'
 import { PREFIX } from '@/utils/constants'
 
