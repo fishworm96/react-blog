@@ -75,7 +75,11 @@ const Article = () => {
           </CardContent>
         </CardHeader>
       </div>
-      <SideBar content={article} />
+      {
+        document.documentElement.clientWidth > 500
+          ? <SideBar content={article} />
+          : <></>
+      }
     </div>
   )
 }
