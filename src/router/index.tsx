@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
-import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
+import { Navigate } from 'react-router'
 import Loading from 'components/Loading'
 // import MySkeleton from 'components/MySkeleton'
 import Error404 from 'components/404'

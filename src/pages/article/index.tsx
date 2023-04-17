@@ -46,7 +46,7 @@ const Article = () => {
   return (
     <div className='flex justify-center'>
       <Catalog categoryList={categoryList} id={id ?? '0'}/>
-      <div className='px-10 w-[1100px]'>
+      <div className='w-full mx-7 lg:px-10 lg:w-[1100px]'>
         <CardHeader>
           <CardTitle width='w-full'>
             <h3>{articleTitle}</h3>
