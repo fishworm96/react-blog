@@ -32,7 +32,7 @@ const Category = () => {
       </div>
       <div className='flex justify-center lg:w-8/12 w-11/12'>
         <CardContent width='w-10/12'>
-          <div className='flex flex-wrap justify-center gap-8 lg:grid lg:justify-items-center lg:grid-cols-3 px-32'>
+          <div className='flex flex-wrap justify-center lg:justify-start gap-8 px-32'>
             {
               categoryList.map(item => (
                 <Link key={item.name} to={`${PREFIX}/category/${item.id}`}>
