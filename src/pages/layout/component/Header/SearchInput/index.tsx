@@ -36,10 +36,12 @@ const SearchInput = () => {
   const clearSearchHistory = () => {
     setShowMask(false)
     setPostList([])
+    setInputValue('')
   }
 
   const handleInputClick = () => {
     setPostList([])
+    setInputValue('')
     setShowMask(true)
     document.body.style.overflow = 'hidden'
   }
@@ -49,6 +51,7 @@ const SearchInput = () => {
       return
     }
     setShowMask(false)
+    setInputValue('')
     document.body.style.overflow = 'auto'
   }, [])
 
