@@ -16,7 +16,7 @@ const Title = ({ id, title }: Props) => {
 
   return (
     <div className='flex justify-between'>
-      <Button onClick={onClick} className="border-none shadow-none border-transparent text-2xl font-semibold text-gray-600 pb-12">
+      <Button onClick={onClick} className="border-none shadow-none border-transparent text-3xl font-semibold text-gray-600 pb-12">
         {title}
       </Button>
     </div>

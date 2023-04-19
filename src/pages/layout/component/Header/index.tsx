@@ -3,7 +3,7 @@ import { Header } from 'antd/es/layout/layout'
 import { Link } from 'react-router-dom'
 import { useLinkList } from './useLinkList'
 import HeaderDrawer from './HeaderDrawer'
-import SearchInput from './SearchInput/SearchInput'
+import SearchInput from './SearchInput'
 
 const BaseHeader = () => {
   const { NavLinkList } = useLinkList()
@@ -22,13 +22,17 @@ const BaseHeader = () => {
         {
           NavLinkList.map(item => (
             <Link to={item.path} key={item.path}>
-              <Button className='text-2xl h-10 border-none' key={item.path}>{item.name}</Button>
+              <Button className='text-2xl h-10 border-none' key={item.path}>
+                {item.name}
+              </Button>
             </Link>
           ))
         }
       </div>
-      <SearchInput />
-      <HeaderDrawer menu={NavLinkList} />
+      <div className='flex'>
+        <SearchInput />
+        <HeaderDrawer menu={NavLinkList} />
+      </div>
     </Header>
   )
 }

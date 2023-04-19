@@ -38,7 +38,7 @@ const Category = () => {
                 <Link key={item.name} to={`${PREFIX}/category/${item.id}`}>
                   <div className='card w-72 h-40 my-3 bg-base-100 shadow-xl image-full cursor-pointer'>
                     <figure>
-                      <img src="https://api.lorem.space/image/movie?w=400&h=225" />
+                      <img src="http://image.fishworm.top/image/golang_destaque1.png" />
                     </figure>
                     <div className='card-body'>
                       <h2 className='card-title'>{item.name}</h2>

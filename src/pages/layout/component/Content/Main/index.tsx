@@ -50,13 +50,13 @@ const Main = () => {
         <div className='flex justify-center flex-1'>
           <div className='flex flex-col items-center w-11/12 lg:w-5/12 lg:mr-10'>
             {
-              (articleList.map(item => (
+              articleList.map(item => (
                 <Card
                   key={item.id}
                   articleList={item}
                   onClick={onClick}
                 />
-              )))
+              ))
             }
           </div>
           <Side totalPages={totalPages} totalTag={totalTag} totalCategory={totalCategory} tagList={tagList} onClick={onClick} />

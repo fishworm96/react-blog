@@ -86,4 +86,9 @@ export namespace Article {
     create_time: string
     update_time: string
   }
+  export interface SearchArticle {
+    id: string
+    description: string
+    title: string
+  }
 }
