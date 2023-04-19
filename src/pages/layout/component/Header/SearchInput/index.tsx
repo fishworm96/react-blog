@@ -36,7 +36,6 @@ const SearchInput = () => {
   const clearSearchHistory = () => {
     setShowMask(false)
     setPostList([])
-    console.log(1)
   }
 
   const handleInputClick = () => {

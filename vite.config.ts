@@ -1,6 +1,6 @@
 import path from 'node:path'
 import type { ConfigEnv, UserConfig } from 'vite'
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
@@ -11,9 +11,11 @@ import postcssImport from 'postcss-import'
 import tailwindcss from 'tailwindcss'
 
 // https://vitejs.dev/config/
-export default defineConfig((mode: ConfigEnv): UserConfig => {
+export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
+  const env = loadEnv(mode, process.cwd())
+
   return {
-    base: '/blog',
+    base: env.VITE_APP_ROUTER_PREFIX,
     resolve: {
       alias: {
         'components': path.resolve(__dirname, 'src', 'components'),
@@ -37,7 +39,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       // https: false,
       proxy: {
         '/api': {
-          target: 'http://localhost:8080',
+          target: env.VITE_APP_API_HOST,
           changeOrigin: true,
           // rewrite: path => path.replace(/^\/api/, ''),
         },
