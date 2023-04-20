@@ -62,6 +62,7 @@ export namespace Category {
   export interface CategoryList {
     id: number
     name: string
+    image: string
   }
   export interface CategoryDetailList {
     community_detail: Category.CategoryList
