@@ -4,6 +4,7 @@ import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
+import analyzer from 'rollup-plugin-analyzer'
 // import { terser } from 'rollup-plugin-terser'
 
 import autoprefixer from 'autoprefixer'
@@ -91,6 +92,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       },
       rollupOptions: {
         plugins: [
+          analyzer({
+            summaryOnly: true,
+            limit: 20,
+          }),
           // terser()
         ],
         output: {

@@ -35,7 +35,7 @@ const Article = () => {
 
   const getArticleList = async () => {
     const { data } = await reqGetArticleListByCategoryID()
-    data && setCategoryList(data)
+    setCategoryList(data)
   }
 
   useEffect(() => {

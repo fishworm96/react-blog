@@ -18,6 +18,7 @@ export const router = [
   {
     path: '',
     element: <Navigate to='blog' />,
+    errorElement: <Error404 />,
   },
   {
     path: `${PREFIX}`,

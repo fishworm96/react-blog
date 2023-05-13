@@ -6,7 +6,7 @@ export interface Result {
 
 // 请求响应参数（包含 data）
 export interface ResultData<T = unknown> extends Result {
-  data?: T
+  data: T
 }
 
 // 分页响应参数
@@ -62,6 +62,7 @@ export namespace Category {
   export interface CategoryList {
     id: number
     name: string
+    image: string
   }
   export interface CategoryDetailList {
     community_detail: Category.CategoryList
