@@ -29,7 +29,6 @@ const Markdown = ({ content }: Props) => {
       if (codeBlock) {
         Prism.highlightElement(codeBlock)
         codeBlock.style.color = 'rgb(253 186 116)'
-        codeBlock.style.padding = '0.4rem'
       }
     })
   }
