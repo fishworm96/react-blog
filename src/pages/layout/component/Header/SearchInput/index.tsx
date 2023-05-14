@@ -28,7 +28,7 @@ const SearchInput = () => {
 
   const handleSearchArticle = async (value: string) => {
     const { data } = await reqSearchArticle(value)
-    data && setPostList(data)
+    setPostList(data)
     setPostList(data ?? [])
     setNoPost((data?.length === 0 || inputValue.length) === 0 ? <div>没有找到文章</div> : <></>)
   }

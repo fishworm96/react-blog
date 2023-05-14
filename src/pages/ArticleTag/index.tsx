@@ -16,7 +16,7 @@ const ArticleTag = () => {
 
   const getTagList = async () => {
     const { data } = await reqGetTagList()
-    data && setTagList(data)
+    setTagList(data)
   }
 
   const onClick = (tag: string) => {

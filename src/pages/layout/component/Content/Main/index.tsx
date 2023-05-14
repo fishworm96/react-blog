@@ -21,19 +21,19 @@ const Main = () => {
 
   const getArticleList = async () => {
     const [resArticleList, resTagList] = await Promise.all([reqGetArticleList(), reqGetTagList()])
-    resArticleList.data && setArticleList(resArticleList.data.post_list)
-    resArticleList.data && setTotalPages(resArticleList.data.total_pages)
-    resArticleList.data && setTotalTag(resArticleList.data.total_tag)
-    resArticleList.data && setTotalCategory(resArticleList.data.total_category)
-    resTagList.data && setTagList(resTagList.data)
+    setArticleList(resArticleList.data.post_list)
+    setTotalPages(resArticleList.data.total_pages)
+    setTotalTag(resArticleList.data.total_tag)
+    setTotalCategory(resArticleList.data.total_category)
+    setTagList(resTagList.data)
   }
 
   const changePage = async (page: number, size: number) => {
     const { data } = await reqGetArticleList(page, size)
-    setArticleList(data!.post_list)
-    setTotalPages(data!.total_pages)
-    setTotalTag(data!.total_tag)
-    setTotalCategory(data!.total_category)
+    setArticleList(data.post_list)
+    setTotalPages(data.total_pages)
+    setTotalTag(data.total_tag)
+    setTotalCategory(data.total_category)
   }
 
   const onClick = (tag: string) => {

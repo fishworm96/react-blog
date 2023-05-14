@@ -27,9 +27,9 @@ const TagDetail = () => {
 
   const onChange = async (page: number, size: number) => {
     const { data } = await reqGetPostListByTag(id!, page, size)
-    data && setArticle(data.post)
-    data && setTitle(data.name)
-    data && setTotalPages(data.total_pages)
+    setArticle(data.post)
+    setTitle(data.name)
+    setTotalPages(data.total_pages)
   }
 
   const onClick = (tag: string) => {

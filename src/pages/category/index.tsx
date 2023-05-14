@@ -13,7 +13,7 @@ const Category = () => {
 
   const getCategoryList = async () => {
     const { data } = await reqGetCategoryList()
-    data && setCategoryList(data)
+    setCategoryList(data)
   }
 
   useEffect(() => {

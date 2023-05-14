@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import Markdown from 'components/Markdown'
 
+import Markdown from 'components/Markdown'
 import CardContent from 'components/Card/CardContent'
 import CardHeader from 'components/Card/CardHeader'
 import CardTitle from 'components/Card/CardTitle'
@@ -25,11 +25,11 @@ const Article = () => {
   const getArticleDetail = async () => {
     if (id) {
       const { data } = await reqGetArticleDetail(id)
-      data && setArticle(data.content)
-      data && setArticleTitle(data.title)
-      data && setTag(data.tag)
-      data && setCreateTime(data.create_time)
-      data && setUpdateTime(data.update_time)
+      setArticle(data.content)
+      setArticleTitle(data.title)
+      setTag(data.tag)
+      setCreateTime(data.create_time)
+      setUpdateTime(data.update_time)
     }
   }
 
