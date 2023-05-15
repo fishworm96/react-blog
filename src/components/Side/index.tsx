@@ -41,7 +41,7 @@ const Side = ({ tagList, totalPages, totalTag, totalCategory, onClick }: Props) 
           }
 
         </div>
-        <div className='mt-4 border-2 rounded-xl p-3'>
+        <div className='mt-4 border-2 rounded-xl'>
           {
             tagList.map(item => <Tag key={item.id} tag={item.name} onClick={() => onClick(item.name)} />)
           }

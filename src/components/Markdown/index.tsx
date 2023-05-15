@@ -23,12 +23,12 @@ interface Props {
 
 const Markdown = ({ content }: Props) => {
   const hlCode = () => {
-    const p = document.querySelectorAll('p')
-    p.forEach((item) => {
-      const codeBlock = item.querySelector('code')
-      if (codeBlock) {
-        Prism.highlightElement(codeBlock)
-        codeBlock.style.color = 'rgb(253 186 116)'
+    const code: NodeListOf<HTMLElement> = document.querySelectorAll('p code')
+    code.forEach((item) => {
+      if (item) {
+        // Prism.highlightElement(codeBlock)
+        item.style.color = '#3594f7'
+        item.style.background = '#0095ff1a'
       }
     })
   }

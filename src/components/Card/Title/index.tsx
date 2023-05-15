@@ -1,4 +1,3 @@
-import { Button } from 'antd'
 import { useNavigate } from 'react-router'
 import { PREFIX } from '@/utils/constants'
 
@@ -16,9 +15,9 @@ const Title = ({ id, title }: Props) => {
 
   return (
     <div className='flex justify-between'>
-      <Button onClick={onClick} className="border-none shadow-none border-transparent text-3xl font-semibold text-gray-600 pb-12">
+      <button onClick={onClick} className="border-none shadow-none border-transparent text-3xl font-semibold text-gray-600 text-overflow-ellipsis text-left">
         {title}
-      </Button>
+      </button>
     </div>
   )
 }

@@ -27,6 +27,9 @@ html,body,#root{height:100%; }
   .mark-img img {
       @apply w-full rounded-xl
   }
+  .text-overflow-ellipsis {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis
+  }
 }
 
 @tailwind utilities;
