@@ -6,7 +6,7 @@ interface Props {
 }
 const CardContent = ({ children, width }: Props) => {
   return (
-    <div className={`flex-1 w-full lg:${width} my-8 p-5 rounded-2xl drop-shadow-xl bg-purple-50`}>
+    <div className={`flex-1 w-full lg:${width} my-8 p-5 rounded-2xl bg-slate-50`}>
       {children}
     </div>
   )
