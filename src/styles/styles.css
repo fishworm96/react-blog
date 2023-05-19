@@ -25,7 +25,7 @@ html,body,#root{height:100%; }
 @tailwind components;
 @layer components {
   .mark-img img {
-      @apply w-full rounded-xl
+      @apply my-2 rounded
   }
   .text-overflow-ellipsis {
     @apply whitespace-nowrap overflow-hidden text-ellipsis
