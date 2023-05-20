@@ -68,7 +68,7 @@ const Article = () => {
               }
             </div>
           </CardTitle>
-          <CardContent width='w-full'>
+          <CardContent width='w-full' backgroundColor='bg-white'>
             <div className='text-gray-700 break-all w-full mark-img'>
               <Markdown content={article} />
             </div>

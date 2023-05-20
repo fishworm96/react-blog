@@ -65,7 +65,7 @@ export namespace Category {
     image: string
   }
   export interface CategoryDetailList {
-    community_detail: Category.CategoryList
+    detail: Category.CategoryList
     post_list: ArticleListDetail[]
     total_pages: number
   }

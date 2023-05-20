@@ -41,9 +41,9 @@ const Catalog = ({ categoryList, id }: Props) => {
 
   return (
     categoryList.length > 0
-      ? <div className='hidden border rounded-lg lg:block sticky mt-10 top-20 max-h-[825px] w-[250px] overflow-y-auto bg-gray-50'>
+      ? <div className='hidden border rounded-lg lg:block sticky mt-10 top-20 max-h-[825px] w-[250px] overflow-y-auto bg-white'>
         <DirectoryTree
-          className='bg-gray-50'
+          className='bg-white'
           switcherIcon={<DownOutlined />}
           onSelect={onSelect}
           treeData={formatTreeData(categoryList)}

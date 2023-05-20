@@ -29,7 +29,7 @@ const Category = () => {
           </CardTitle>
         </div>
         <div className='flex justify-center lg:w-8/12 w-11/12'>
-          <CardContent width='w-10/12'>
+          <CardContent width='w-10/12' backgroundColor="bg-white">
             <div className='flex flex-wrap justify-center lg:justify-start gap-8 px-32'>
               {
                 categoryList.map(item => (
