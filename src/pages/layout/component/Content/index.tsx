@@ -4,7 +4,7 @@ interface Props {
 
 const Content = ({ children }: Props) => {
   return (
-    <div className="flex flex-col flex-1">
+    <div className="flex flex-col flex-1 bg-indigo-50">
       <main className='flex flex-col flex-1'>
         <>
           {children}

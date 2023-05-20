@@ -12,7 +12,7 @@ interface Props {
 const Card = ({ articleList, onClick }: Props) => {
   const { id, title, description, create_time, tag } = articleList
   return (
-    <div className='flex-col bg-indigo-50 p-5 w-full border-solid rounded-t-2xl rounded-b-2xl mt-10 shadow-xl'>
+    <div className='flex-col bg-white p-5 w-full border-solid rounded-t-2xl rounded-b-2xl mt-10 shadow-xl'>
       <div>
         <Title title={title} id={id} />
         {

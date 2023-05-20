@@ -19,8 +19,9 @@ const ArticleDetail = () => {
   const getCategory = async () => {
     if (id) {
       const { data } = await reqGetCategoryListByIDWithPagination(+id)
+      console.log(data)
       setArticleList(data.post_list)
-      setTitle(data.community_detail.name)
+      setTitle(data.detail.name)
       setTotalPages(data.total_pages)
     }
   }
@@ -28,7 +29,7 @@ const ArticleDetail = () => {
   const onChange = async (page: number, size: number) => {
     const { data } = await reqGetCategoryListByIDWithPagination(+id!, page, size)
     setArticleList(data.post_list)
-    setTitle(data.community_detail.name)
+    setTitle(data.detail.name)
     setTotalPages(data.total_pages)
   }
 

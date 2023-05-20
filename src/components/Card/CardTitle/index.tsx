@@ -8,7 +8,7 @@ interface Props {
 
 const CardTitle = ({ children, width }: Props) => {
   return (
-    <div className={`w-full lg:${width} rounded-2xl drop-shadow-xl mt-8 p-5 bg-purple-50`}>
+    <div className={`w-full lg:${width} rounded-2xl drop-shadow-xl mt-8 p-5 bg-white`}>
       {children}
     </div>
   )

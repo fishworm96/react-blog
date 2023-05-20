@@ -29,7 +29,7 @@ const ArticleTag = () => {
 
   return (
     <div className="flex justify-center items-center mt-10">
-      <div className="lg:w-1/2 w-11/12 h-80 rounded-2xl bg-slate-50 p-5">
+      <div className="lg:w-1/2 w-11/12 h-80 rounded-2xl bg-white p-5">
         {
           tagList.map(item => (
             <Tag size='large' key={item.id} tag={item.name} onClick={() => onClick(item.name)} />
