@@ -26,6 +26,7 @@ module.exports = {
       '3xl': '1.953rem',
       '4xl': '2.441rem',
       '5xl': '3.052rem',
+      '9xl': '14rem',
     },
   },
   plugins: [require('daisyui')],
