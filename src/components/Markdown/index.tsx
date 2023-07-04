@@ -1,4 +1,5 @@
-import ReactMarkdown from 'markdown-to-jsx'
+import { memo, useEffect } from 'react'
+import MarkdownToJsx from 'markdown-to-jsx'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/components/prism-typescript.min.js'
@@ -15,34 +16,26 @@ import 'prismjs/components/prism-git.min.js'
 import 'prismjs/components/prism-shell-session.min.js'
 import 'prismjs/components/prism-bash.min.js'
 import 'prismjs/components/prism-nginx.min.js'
-import { useEffect } from 'react'
+import 'prismjs/components/prism-yaml.min.js'
+
+import './highlight.css'
 
 interface Props {
   content: string
 }
 
 const Markdown = ({ content }: Props) => {
-  const hlCode = () => {
-    const code: NodeListOf<HTMLElement> = document.querySelectorAll('p code')
-    code.forEach((item) => {
-      if (item) {
-        // Prism.highlightElement(codeBlock)
-        item.style.color = '#3594f7'
-        item.style.background = '#0095ff1a'
-      }
-    })
-  }
-
   useEffect(() => {
     Prism.highlightAll()
-    hlCode()
   }, [content])
 
   return (
     <>
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <MarkdownToJsx>
+        {content}
+        </MarkdownToJsx>
     </>
   )
 }
 
-export default Markdown
+export default memo(Markdown)

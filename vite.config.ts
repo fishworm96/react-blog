@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
 import analyzer from 'rollup-plugin-analyzer'
+import { visualizer } from 'rollup-plugin-visualizer'
 // import { terser } from 'rollup-plugin-terser'
 
 import autoprefixer from 'autoprefixer'
@@ -78,6 +79,34 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             path: 'https://cdn.bootcdn.net/ajax/libs/antd/5.3.1/antd.min.js',
             css: 'https://cdn.bootcdn.net/ajax/libs/antd/5.3.1/reset.min.css',
           },
+          {
+            name: 'prismjs',
+            var: 'Prism',
+            path: [
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-git.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-tsx.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-shell-session.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js',
+              'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js',
+            ],
+          },
+          {
+            name: 'nprogress',
+            var: 'NProgress',
+            path: 'https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js',
+            css: 'https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css',
+          },
         ],
       }),
     ],
@@ -95,6 +124,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           analyzer({
             summaryOnly: true,
             limit: 20,
+          }),
+          visualizer({
+            emitFile: true,
+            filename: 'stats.html',
           }),
           // terser()
         ],
