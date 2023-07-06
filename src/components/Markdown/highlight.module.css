@@ -33,7 +33,7 @@ hr {
 }
 
 li {
-  word-wrap: break-all;
+  word-wrap: break-word;
 }
 
 li+li {
@@ -160,15 +160,22 @@ ul>li>code {
   background: #0095ff1a;
 }
 
-ul>li::before {
+.markdown-li::before {
   content: "•"; /* 设置列表符号的内容，可以是文字或其他 Unicode 字符 */
   color: #3594f7; /* 设置列表符号的颜色 */
   margin-right: 0.5em; /* 可选：调整列表符号与文字之间的间距 */
 }
 
-.hljs-comment,
-.hljs-quote {
-  font-style: normal;
+div.code-toolbar > .toolbar > .toolbar-item {
+  margin: 0 .3rem;
+}
+
+div.code-toolbar > .toolbar {
+	/* position: absolute;
+	z-index: 10;
+	top: .3em;
+	right: .2em; */
+	opacity: 1;
 }
 
 strong {

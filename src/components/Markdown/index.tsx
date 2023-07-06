@@ -1,39 +1,45 @@
-import { memo, useEffect } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import MarkdownToJsx from 'markdown-to-jsx'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
-import 'prismjs/components/prism-typescript.min.js'
-import 'prismjs/components/prism-javascript.min.js'
-import 'prismjs/components/prism-css.min.js'
-import 'prismjs/components/prism-go.min.js'
-import 'prismjs/components/prism-c.min.js'
-import 'prismjs/components/prism-csharp.min.js'
-import 'prismjs/components/prism-java.min.js'
-import 'prismjs/components/prism-jsx.min.js'
-import 'prismjs/components/prism-tsx.min.js'
-import 'prismjs/components/prism-sql.min.js'
-import 'prismjs/components/prism-git.min.js'
-import 'prismjs/components/prism-shell-session.min.js'
-import 'prismjs/components/prism-bash.min.js'
-import 'prismjs/components/prism-nginx.min.js'
-import 'prismjs/components/prism-yaml.min.js'
+import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
+import 'prismjs/plugins/toolbar/prism-toolbar.min.js'
+import 'prismjs/plugins/diff-highlight/prism-diff-highlight.min.css'
+import 'prismjs/plugins/diff-highlight/prism-diff-highlight.min.js'
+import 'prismjs/plugins/show-language/prism-show-language.min.js'
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js'
+import 'prismjs/plugins/autoloader/prism-autoloader.min.js'
 
-import './highlight.css'
+import styles from './highlight.module.css'
 
 interface Props {
   content: string
 }
 
 const Markdown = ({ content }: Props) => {
+  const codeRef = useRef<HTMLDivElement | null>(null)
+  const options = {
+    overrides: {
+      li: {
+        props: {
+          className: styles['markdown-li'],
+        },
+      },
+    },
+  }
+
   useEffect(() => {
     Prism.highlightAll()
+    return () => {
+      console.log(codeRef.current)
+    }
   }, [content])
 
   return (
     <>
-      <MarkdownToJsx>
-        {content}
-        </MarkdownToJsx>
+    <div ref={codeRef}>
+      <MarkdownToJsx options={options} children={content} />
+    </div>
     </>
   )
 }
