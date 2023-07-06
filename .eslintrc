@@ -4,7 +4,9 @@
     "eol-last": 0,
     "no-console": "off",
     "curly": "off",
-    "@typescript-eslint/brace-style": "off"
+    "@typescript-eslint/brace-style": "off",
+    "no-tabs": "off",
+    "no-mixed-spaces-and-tabs": "off"
     // "indent": ["error", 2, { "SwitchCase": 1 }],
   }
 }
