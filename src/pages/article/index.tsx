@@ -6,6 +6,7 @@ import CardContent from 'components/Card/CardContent'
 import CardHeader from 'components/Card/CardHeader'
 import CardTitle from 'components/Card/CardTitle'
 import Tag from 'components/Tag'
+import Loading from 'components/Loading'
 import SideBar from './SideBar'
 import Catalog from './Catalog'
 import { reqGetArticleDetail } from '@/api/modules/article'
@@ -44,43 +45,51 @@ const Article = () => {
   }, [id])
 
   return (
-    <div className='flex justify-center'>
-      <Catalog categoryList={categoryList} id={id ?? '0'}/>
-      <div className='w-full mx-7 lg:px-10 lg:w-[1100px]'>
-        <CardHeader>
-          <CardTitle width='w-full'>
-            <h3>{articleTitle}</h3>
-            <span className='mt-2 h-2 inline-block'>
-              <div>
-                <span>创建时间：</span>
-                <time>{getYMDHMS(createTime)}</time>
-              </div>
-              <div>
-                <span>修改时间：</span>
-                <time>{getYMDHMS(updateTime)}</time>
-              </div>
-            </span>
-            <div className='mt-3'>
-              {
-                tag.map(item => (
-                  <Tag key={item.id} tag={item.name} />
-                ))
-              }
-            </div>
-          </CardTitle>
-          <CardContent width='w-full' backgroundColor='bg-white'>
-            <div className='text-gray-700 break-all w-full mark-img'>
-              <Markdown content={article} />
-            </div>
-          </CardContent>
-        </CardHeader>
-      </div>
+    <>
       {
-        document.documentElement.clientWidth > 500
-          ? <SideBar content={article} />
-          : <></>
+        (getYMDHMS(createTime) && article)
+          ? (
+          <div className='flex justify-center'>
+          <Catalog categoryList={categoryList} id={id ?? '0'}/>
+          <div className='w-full mx-7 lg:px-10 lg:w-[1100px]'>
+            <CardHeader>
+              <CardTitle width='w-full'>
+                <h3>{articleTitle}</h3>
+                <span className='mt-2 h-2 inline-block'>
+                  <div>
+                    <span>创建时间：</span>
+                    <time>{getYMDHMS(createTime)}</time>
+                  </div>
+                  <div>
+                    <span>修改时间：</span>
+                    <time>{getYMDHMS(updateTime)}</time>
+                  </div>
+                </span>
+                <div className='mt-3'>
+                  {
+                    tag.map(item => (
+                      <Tag key={item.id} tag={item.name} />
+                    ))
+                  }
+                </div>
+              </CardTitle>
+              <CardContent width='w-full' backgroundColor='bg-white'>
+                <div className='text-gray-700 break-all w-full mark-img'>
+                  <Markdown content={article} />
+                </div>
+              </CardContent>
+            </CardHeader>
+          </div>
+          {
+            document.documentElement.clientWidth > 500
+              ? <SideBar content={article} />
+              : <></>
+          }
+        </div>
+            )
+          : <Loading />
       }
-    </div>
+    </>
   )
 }
 

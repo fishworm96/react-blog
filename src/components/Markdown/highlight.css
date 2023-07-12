@@ -160,22 +160,35 @@ ul>li>code {
   background: #0095ff1a;
 }
 
-.markdown-li::before {
+ul>li.markdown-li::before {
   content: "•"; /* 设置列表符号的内容，可以是文字或其他 Unicode 字符 */
   color: #3594f7; /* 设置列表符号的颜色 */
   margin-right: 0.5em; /* 可选：调整列表符号与文字之间的间距 */
 }
 
-div.code-toolbar > .toolbar > .toolbar-item {
-  margin: 0 .3rem;
+.code-block-extension-headerRight {
+  display: flex;
+  justify-content: flex-end;
 }
 
-div.code-toolbar > .toolbar {
-	/* position: absolute;
-	z-index: 10;
-	top: .3em;
-	right: .2em; */
-	opacity: 1;
+pre.hljs {
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  margin: 1rem 0;
+}
+
+div>span.code-block-extension-lang {
+  font-size: 12px;
+  margin: 0 .5rem;
+}
+
+div>button.code-block-extension-copyCodeBtn {
+  font-size: 12px;
+  margin: 0 .5rem;
+}
+
+span.hljs-comment {
+  font-style: normal;
 }
 
 strong {
