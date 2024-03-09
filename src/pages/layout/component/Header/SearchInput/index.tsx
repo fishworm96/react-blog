@@ -1,5 +1,5 @@
 import type { MouseEvent, MouseEventHandler, ReactNode } from 'react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { InputRef } from 'antd'
 import { Input, List } from 'antd'
@@ -28,7 +28,6 @@ const SearchInput = () => {
 
   const handleSearchArticle = async (value: string) => {
     const { data } = await reqSearchArticle(value)
-    setPostList(data)
     setPostList(data ?? [])
     setNoPost((data?.length === 0 || inputValue.length) === 0 ? <div>没有找到文章</div> : <></>)
   }
@@ -59,7 +58,7 @@ const SearchInput = () => {
     inputRef.current && inputRef.current.focus()
   }, [showMask])
 
-  useEffect(() => {
+  useMemo(() => {
     handleSearchArticle(inputValue)
   }, [debounceInput])
 

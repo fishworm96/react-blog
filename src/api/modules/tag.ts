@@ -1,4 +1,4 @@
-import { PORT1 } from '../serviceProt.ts'
+import { PORT1 } from '../servicePort'
 import type { Tag } from '../interface'
 import http from '@/api'
 

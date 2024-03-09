@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import Markdown from 'components/Markdown'
+import Markdown from '@/pages/Article/Markdown'
 import CardContent from 'components/Card/CardContent'
 import CardHeader from 'components/Card/CardHeader'
 import CardTitle from 'components/Card/CardTitle'
@@ -40,8 +40,8 @@ const Article = () => {
   }
 
   useEffect(() => {
-    getArticleDetail()
     getArticleList()
+    getArticleDetail()
   }, [id])
 
   return (

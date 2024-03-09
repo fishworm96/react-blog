@@ -19,7 +19,6 @@ const ArticleDetail = () => {
   const getCategory = async () => {
     if (id) {
       const { data } = await reqGetCategoryListByIDWithPagination(+id)
-      console.log(data)
       setArticleList(data.post_list)
       setTitle(data.detail.name)
       setTotalPages(data.total_pages)

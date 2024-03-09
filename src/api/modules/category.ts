@@ -1,5 +1,5 @@
 import type { Category } from '../interface'
-import { PORT1 } from './../serviceProt.ts/index'
+import { PORT1 } from '../servicePort/index'
 import http from '@/api'
 
 export const reqGetCategoryList = () =>

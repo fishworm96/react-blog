@@ -7,6 +7,7 @@ import Error404 from 'components/404'
 import Layout from '@/pages/layout'
 import TagDetail from '@/pages/TagDetail'
 import { PREFIX } from '@/utils/constants'
+import Video from '@/pages/Video'
 
 const Main = lazy(() => import('@/pages/layout/component/Content/Main'))
 const Article = lazy(() => import('@/pages/Article'))
@@ -83,6 +84,19 @@ export const router = [
           },
         ],
       },
+      {
+        path: 'video',
+        children: [
+          {
+            path: '',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <Video />
+              </Suspense>
+            )
+          }
+        ]
+      }
     ],
   },
 ]
