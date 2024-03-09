@@ -1,0 +1,196 @@
+p,
+details,
+dl,
+ol,
+ul,
+xmp,
+plaintext,
+listing,
+blockquote,
+table,
+figure,
+hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+blockquote> :first-child {
+  margin-top: 0;
+}
+
+blockquote> :last-child {
+  margin-bottom: 0;
+}
+
+hr {
+  border-style: inset;
+  border-width: 1px;
+}
+
+li {
+  word-wrap: break-word;
+}
+
+li+li {
+  margin-top: 4px;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: #3370ff;
+  text-decoration: underline;
+}
+
+a img {
+  border: none;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+mark {
+  color: #1f2329;
+  padding: 0.2em 0;
+  background-color: rgba(255, 246, 122, 0.8);
+}
+
+del,
+s {
+  color: inherit;
+}
+
+table {
+  color: black;
+  border-collapse: collapse;
+  background-color: white;
+  border-spacing: 2px;
+  font-size: 1em;
+  text-align: center;
+}
+
+th,
+td {
+  border-color: #dee0e3;
+  border-width: 1px;
+  border-style: solid;
+}
+
+th {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+td {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+blockquote {
+  display: block;
+  margin-left: 0;
+  padding-left: 14px;
+  border-left: 2px solid #3370ff;
+  color: rgba(31, 35, 41, 0.7);
+}
+
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  hyphens: auto;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 13px 0 12px;
+  border: 0px;
+  height: 1px;
+  background-origin: content-box;
+  background-image: linear-gradient(90deg, #bbbfc4, #bbbfc4);
+  background-repeat: no-repeat;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ol {
+  counter-reset: ol_counter;
+  margin-left: 0;
+  padding-left: 22px;
+  list-style: none;
+}
+
+li+li,
+ul ul,
+ol ul,
+ul ol,
+ol ol,
+li ul,
+li ol {
+  margin-top: 4px;
+}
+
+p>code,
+ul>li>code {
+  color: #3594f7;
+  background: #0095ff1a;
+}
+
+ul>li.markdown-li::before {
+  content: "•"; /* 设置列表符号的内容，可以是文字或其他 Unicode 字符 */
+  color: #3594f7; /* 设置列表符号的颜色 */
+  margin-right: 0.5em; /* 可选：调整列表符号与文字之间的间距 */
+}
+
+.code-block-extension-headerRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+pre.hljs {
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  margin: 1rem 0;
+}
+
+div>span.code-block-extension-lang {
+  font-size: 12px;
+  margin: 0 .5rem;
+}
+
+div>button.code-block-extension-copyCodeBtn {
+  font-size: 12px;
+  margin: 0 .5rem;
+}
+
+span.hljs-comment {
+  font-style: normal;
+}
+
+strong {
+  color: #000;
+}
